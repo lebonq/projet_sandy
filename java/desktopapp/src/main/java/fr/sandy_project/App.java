@@ -2,6 +2,7 @@ package fr.sandy_project;
 
 /**
  * Hello world!
+ * Bonjour je test
  *
  */
 public class App 
