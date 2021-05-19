@@ -2,7 +2,7 @@
 
 ## Général  
 **1. Context :**    
-Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentes aujourd'hui un risque environnemental et sanitaire croissant.   
+<div style="text-align: justify">Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentes aujourd'hui un risque environnemental et sanitaire croissant.</div>     
 
 **2. Objectifs du logiciel :**    
 Face à ce constat, le projet *Sandy* associé à un spectromètre IR permet d'analyser les microplsatiques présents sur une plage afin de les identifier et de les quantifier.
