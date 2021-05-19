@@ -18,7 +18,7 @@ Pour cela, nous avons besoin de spectre de réflexion de référence afin de pou
 * Polyéthylène basse densité (PE-LD) : gobelet en plastique
 
 *Caractéristiques spectrales :* 
-<img src="https://github.com/lebonq/projet_sandy/blob/main/courbeReflexion.PNG"/>
+<img src="https://github.com/lebonq/projet_sandy/blob/main/courbeReflexion.PNG"/>  
 *D'après https://www.nature.com/articles/s41598-021-84867-6/figures/1*
 
 ## Installation  
