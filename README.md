@@ -17,6 +17,9 @@ Pour cela, nous avons besoin de spectre de réflexion de référence afin de pou
 * Polyester (PEST) : corde orange
 * Polyéthylène basse densité (PE-LD) : gobelet en plastique
 
+Caractéristiques spectrales : 
+<img src="https://github.com/lebonq/projet_sandy/blob/main/courbeReflexion.PNG"/>
+
 ## Installation  
 _fonctionne avec python3_
 
