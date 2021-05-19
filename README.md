@@ -15,7 +15,7 @@ Pour cela, nous avons besoin de spectre de réflexion de référence afin de pou
 * Polyéthylène téréphtalate (PET) : bouteille en plastique  
 * Polypropylène (PP) : corde bleue
 * Polyester (PEST) : corde orange
-* Polyéthylène basse densité (PE-LD) :gobelet en plastique
+* Polyéthylène basse densité (PE-LD) : gobelet en plastique
 
 ## Installation  
 _fonctionne avec python3_
