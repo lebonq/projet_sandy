@@ -6,7 +6,7 @@
 
 **1. Context :**
 
-Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentes aujourd'hui un risque environnemental et sanitaire croissant.    
+Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentent aujourd'hui un risque environnemental et sanitaire croissant.    
 
 **2. Objectifs du logiciel :**
 
