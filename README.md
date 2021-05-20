@@ -1,3 +1,5 @@
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/lebonq/projet_sandy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/lebonq/projet_sandy/context:python)
+
 # Sandy logiciel  
 
 ## Général
