@@ -24,29 +24,7 @@ for nb in range(0,len(longeur_donde_spectre_type)):
     for i in range(0,nb_valeur):
         reflectance.append((reflectance_donde_spectre_type[nb][0]+pas*i)+random.uniform(-bruit,bruit))
 
-## reflectance = np.sinc(plage_longueur_d_onde) + reflectance   ##Pour le bruit
-
-'''for nb in range(0,2):
-    borne_inf_bruit = round(random.uniform(borne_inf,borne_sup-100),0) #on arrondi a l'unite
-    print(borne_inf_bruit)
-    borne_sup_bruit = round(borne_inf_bruit + random.uniform(20,100),0)
-    print(borne_sup_bruit)
-    position_born_inf = int((borne_inf_bruit*resolution - borne_inf*resolution))
-    position_born_sup = int((borne_sup_bruit - borne_inf)*resolution)
-    milieu = int(position_born_inf + (position_born_sup - position_born_inf)/2)
-    reflectance_modif = reflectance[milieu] + random.uniform(-0.5,0.5)
-    
-    nb_valeur = int((1/resolution)*(milieu - position_born_inf))
-    pas = (reflectance_modif - reflectance[position_born_inf])/nb_valeur
-    for i in range(0,nb_valeur):
-        reflectance[position_born_inf+i] = reflectance[position_born_inf] + pas
-
-    nb_valeur = int((1/resolution)*(position_born_sup - milieu))
-    pas = (reflectance[position_born_sup] - reflectance_modif)/nb_valeur
-    for i in range(0,nb_valeur):
-        reflectance[milieu+i] = reflectance[milieu] + pas'''
-
-
+reflectance = np.sinc(plage_longueur_d_onde*0.01) + np.sinc(plage_longueur_d_onde*5) + reflectance   ##Pour le bruit
 
 plt.plot(plage_longueur_d_onde, reflectance)
 plt.show()
