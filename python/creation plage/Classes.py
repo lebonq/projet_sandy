@@ -51,20 +51,20 @@ class Case:
         self.x = x
         self.y = y
         self.indice = self.set_indice(xmax)         # indice est le numéro de la case, par exemple, pour une plage en 3x3, les cases sont numérotées de 0 à 8
-        self.isPlastic = self.set_isPlastic(proba)  # y a t-il du plastique sur cette case ?
+        self.estPlactique = self.set_estPlactique(proba)  # y a t-il du plastique sur cette case ?
         self.spectre = self.set_spectre()           # Spectre lié à cette case, chaque case à un et unique objet Spectre
 
     # definit le Spectre de la Case en appelant le constructeur de la classe Spectre
     def set_spectre(self):
-        spectre = Spectre(self.isPlastic)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
+        spectre = Spectre(self.estPlactique)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
         return spectre                      # à voir avec Quentin si cela lui va
 
     # retourne l'attribut grille de la classe
     def get_spectre(self):
-        return self.spectre.get_isPlactic()
+        return self.spectre.get_estPlactique()
 
     # definit si la Case contient du plastique ou non, definit via la variable 'proba'
-    def set_isPlastic(self, proba):
+    def set_estPlactique(self, proba):
         rand = random.random()
         if rand <= proba:
             return True
@@ -72,7 +72,7 @@ class Case:
             return False
     
     # retourne l'attribut grille de la classe
-    def get_isPlastic(self):
+    def get_estPlactique(self):
         return self.isPlastic()
 
     # definit l'indice de la case selon la formule suivante. /!\ indice servira surement uniquement pour le debugging
@@ -85,7 +85,7 @@ class Case:
 
     # retourne l'attribut grille de la classe
     def get_case(self):
-        if self.isPlastic:
+        if self.estPlactique:
             return 'P'
         else:
             return 'N'
@@ -96,7 +96,7 @@ class Case:
         print("x = ", self.x)
         print("y = ", self.y)
         print("indice = ", self.get_indice())
-        print("isPlastic = ", self.get_isPlastic())
+        print("isPlastic = ", self.get_estPlactique())
         print("spectre = ", self.get_spectre(), "\n")
 
 
@@ -104,9 +104,9 @@ class Case:
 class Spectre: 
 
     # constructeur simpliste et temporaire
-    def __init__(self, isPlactic):
-        self.isPlactic = isPlactic
+    def __init__(self, estPlactique):
+        self.estPlactique = estPlactique
 
     # retourne l'attribut isPlastic de la classe
     def get_isPlastic(self):
-        return self.isPlactic
+        return self.estPlactique
