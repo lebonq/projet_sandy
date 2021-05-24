@@ -38,7 +38,7 @@ class Spectre:
     def est_plastique(self):
         return self.plastique
     
-    def creer_spectre(self):
+    def creer_spectre(self):#peut etre appeler pour recreer le spectre selon vos besoins
         liste_data = []
 
         if(self.est_plastique):
@@ -94,9 +94,12 @@ class Spectre:
 
         self.reflectance = np.sinc(self.plage_longueur_d_onde*0.02)*0 + np.sinc(self.plage_longueur_d_onde*0.01)*0 + np.sinc(self.plage_longueur_d_onde*5) + self.reflectance   ##Pour le bruit
 
-    def afficher(self):
+    def afficher(self):# affiche le spectre dans une fenetre numpy
         plt.plot(self.plage_longueur_d_onde, self.reflectance)
         plt.show()
     
-    def get_reflectance(self):
+    def get_reflectance(self):#permet de recupere le tableau avec toute la valeur des reflectances selon la resolution donnee
         return self.reflectance
+
+    def get_resolution(self):
+        return self.resolution
