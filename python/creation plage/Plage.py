@@ -1,5 +1,6 @@
 import random   #import de la librairie random
 import numpy as np
+import matplotlib.pyplot as plt
 
 #Liste de string possible pour le spectre
 liste_type_plastique = ["orange_pp","white_pe","blue_pp","bottle","white_polyester"]
@@ -65,6 +66,12 @@ class Plage:
             print("--", end="", flush=True)
         print("-")
 
+    def get_specific_Case(self,x,y):
+        return self.grille[y][x]
+    
+    def print_specific_Case_infos(self,x,y):
+        self.grille[y][x].print_infos()
+
 
 # Notre objet Case, contient différents attributs permettant de définir la case
 class Case:
@@ -83,8 +90,8 @@ class Case:
         return spectre                      # à voir avec Quentin si cela lui va
 
     # retourne l'attribut grille de la classe
-    def get_spectre(self):
-        return self.spectre.get_estPlactique()
+    def print_spectre(self):
+        return self.spectre.afficher()
 
     # definit si la Case contient du plastique ou non, definit via la variable 'proba'
     def set_estPlactique(self, proba):
@@ -96,7 +103,7 @@ class Case:
     
     # retourne l'attribut grille de la classe
     def get_estPlactique(self):
-        return self.isPlastic()
+        return self.estPlactique
 
     # definit l'indice de la case selon la formule suivante. /!\ indice servira surement uniquement pour le debugging
     def set_indice(self, xmax):
@@ -115,14 +122,14 @@ class Case:
 
     # affiche une description précise de la case, tous les attributs sont affichés. /!\ cette fonction servira surement uniquement pour le debugging
     def print_infos(self):
-        print("I print the infos !")
+        print("Informations de la case :")
         print("x = ", self.x)
         print("y = ", self.y)
         print("indice = ", self.get_indice())
         print("isPlastic = ", self.get_estPlactique())
-        print("spectre = ", self.get_spectre(), "\n")
-
-    
+        print("\nInformations du Spectre :")
+        print("spectre = voir fenetre")
+        self.print_spectre()
 
 class Spectre: 
 
@@ -138,16 +145,15 @@ class Spectre:
         self.grand_bruit = grand_bruit #0 si pas de bruit, 1 si bruit
         self.creer_spectre()
 
-    # retourne un bruit aléatoire (bornes à définir avec QUENTINNN)
+    # retourne un bruit aléatoire
     def petit_bruit_aleatoire(self):
-        rand = random.randint(0,4)
+        rand = random.uniform(0.00010,0.00099)
         return rand
 
     #retoure un type de plastique aléatoire
     def plastique_aleatoire(self): 
-        rand = random.randint(0,4)
         plastique = ["orange_pp", "white_pe", "blue_pp", "bottle", "white_polyester"]
-        return plastique[rand]
+        return random.choice(plastique)
 
     # retourne l'attribut isPlastic de la classe
     def est_plastique(self):
