@@ -97,7 +97,7 @@ class Spectre:
             for i in range(nb_valeur):
                 self.reflectance.append((reflectance_donde_spectre_type[nb][0]+pas*i)+random.uniform(-self.petit_bruit,self.petit_bruit))#Pour le petit bruit
 
-        self.reflectance = np.sinc(self.plage_longueur_d_onde*0.02)*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*0.05)*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*5) + self.reflectance   ##Pour le bruit
+        self.reflectance = np.sinc(self.plage_longueur_d_onde*random.uniform(0.0,0.4))*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*random.uniform(0.4,0.9))*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*5) + self.reflectance   ##Pour le bruit
 
     def afficher(self):# affiche le spectre dans une fenetre numpy
         
