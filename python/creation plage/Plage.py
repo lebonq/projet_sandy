@@ -89,6 +89,9 @@ class Case:
         spectre = Spectre(self.estPlactique,0.2,1)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
         return spectre                      # à voir avec Quentin si cela lui va
 
+    def get_spectre(self):
+        return self.spectre
+
     # retourne l'attribut grille de la classe
     def print_spectre(self):
         return self.spectre.afficher()
