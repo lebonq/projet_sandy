@@ -34,6 +34,8 @@ class Spectre:
         self.petit_bruit = petit_bruit # une valeur float comme par exemple 0.0005
         self.type_plastique = type_plastique #string avec le nom du plastique (cf)
         self.grand_bruit = grand_bruit #0 si pas de bruit, 1 si bruit
+        self.reflectance = [] #Tableau qui contient la reflectance pour chaque longeur d'onde de plage_longeur_donde
+        self.plage_longueur_d_onde = [] #tableai qui contient toute les longeurs d'ondes
         self.creer_spectre()
 
     # retourne l'attribut isPlastic de la classe
@@ -98,6 +100,7 @@ class Spectre:
         self.reflectance = np.sinc(self.plage_longueur_d_onde*0.02)*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*0.05)*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*5) + self.reflectance   ##Pour le bruit
 
     def afficher(self):# affiche le spectre dans une fenetre numpy
+        
         plt.plot(self.plage_longueur_d_onde, self.reflectance)
         plt.show()
     
