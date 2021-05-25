@@ -33,7 +33,7 @@ class Spectre:
         self.resolution = resolution #resolution de la courbe
         self.petit_bruit = petit_bruit # une valeur float comme par exemple 0.0005
         self.type_plastique = type_plastique #string avec le nom du plastique (cf)
-        self.grand_bruit = grand_bruit #0 ou 1
+        self.grand_bruit = grand_bruit #0 si pas de bruit, 1 si bruit
         self.creer_spectre()
 
     # retourne l'attribut isPlastic de la classe
