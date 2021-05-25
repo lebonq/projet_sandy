@@ -103,6 +103,9 @@ class Spectre:
     
     def get_reflectance(self):#permet de recupere le tableau avec toute la valeur des reflectances selon la resolution donnee
         return self.reflectance
-
+    
+    def get_longeur_donde(self):
+        return self.plage_longueur_d_onde
+    
     def get_resolution(self):
         return self.resolution
