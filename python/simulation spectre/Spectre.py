@@ -2,6 +2,7 @@ import numpy as np;
 import matplotlib.pyplot as plt
 import random
 
+#Liste de string possible pour le spectre
 liste_type_plastique = ["orange_pp","white_pe","blue_pp","bottle","white_polyester"]
 
 # ORANGE PP ROPE UNROLLED
@@ -25,20 +26,22 @@ liste_data_sable = []
 #Classe spectre qui permet de simuler un spectrometre
 class Spectre: 
 
-    def __init__(self, plastique,resolution,bruit,type_plastique):
-        self.plastique = plastique
+    def __init__(self, plastique,resolution,petit_bruit,grand_bruit,type_plastique):
+        self.plastique = plastique #boolean permet de savoir si le spectre est plastique ou non
         self.borne_inf = 400 #Int
         self.borne_sup = 2420 #Int
-        self.resolution = resolution
-        self.bruit = bruit
-        self.type_plastique = type_plastique
+        self.resolution = resolution #resolution de la courbe
+        self.petit_bruit = petit_bruit # une valeur float comme par exemple 0.0005
+        self.type_plastique = type_plastique #string avec le nom du plastique (cf)
+        self.grand_bruit = grand_bruit #0 ou 1
         self.creer_spectre()
 
     # retourne l'attribut isPlastic de la classe
     def est_plastique(self):
         return self.plastique
-    
-    def creer_spectre(self):#peut etre appeler pour recreer le spectre selon vos besoins
+
+    #peut etre appeler pour recreer le spectre selon vos besoins
+    def creer_spectre(self):
         liste_data = []
 
         if(self.est_plastique):
@@ -86,13 +89,13 @@ class Spectre:
         self.plage_longueur_d_onde = np.linspace(self.borne_inf,self.borne_sup, int((1/self.resolution)*(self.borne_sup-self.borne_inf)))
         self.reflectance = []
 
-        for nb in range(0,len(longeur_donde_spectre_type)):
+        for nb in range(len(longeur_donde_spectre_type)):
             nb_valeur = int((1/self.resolution)*(longeur_donde_spectre_type[nb][1]-longeur_donde_spectre_type[nb][0]))
             pas = (reflectance_donde_spectre_type[nb][1] - reflectance_donde_spectre_type[nb][0])/nb_valeur
-            for i in range(0,nb_valeur):
-                self.reflectance.append((reflectance_donde_spectre_type[nb][0]+pas*i)+random.uniform(-self.bruit,self.bruit))
+            for i in range(nb_valeur):
+                self.reflectance.append((reflectance_donde_spectre_type[nb][0]+pas*i)+random.uniform(-self.petit_bruit,self.petit_bruit))#Pour le petit bruit
 
-        self.reflectance = np.sinc(self.plage_longueur_d_onde*0.02)*0 + np.sinc(self.plage_longueur_d_onde*0.01)*0 + np.sinc(self.plage_longueur_d_onde*5) + self.reflectance   ##Pour le bruit
+        self.reflectance = np.sinc(self.plage_longueur_d_onde*0.02)*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*0.05)*self.grand_bruit + np.sinc(self.plage_longueur_d_onde*5) + self.reflectance   ##Pour le bruit
 
     def afficher(self):# affiche le spectre dans une fenetre numpy
         plt.plot(self.plage_longueur_d_onde, self.reflectance)
