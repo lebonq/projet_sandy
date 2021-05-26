@@ -133,19 +133,23 @@ class Analyse:
             elif (i == 4):
                 matrix_ref = self.matrix_ref_white_polyester
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
+            elif(i == 5):
+                matrix_ref = self.matrix_ref_sable
+                erreur.append(self.mse(matrix_ref,matrix_to_studied))
         
         idx = erreur.index(min(erreur))
         erreur = min(erreur)
         
         if (erreur > 0.009) :
             print("Erreur quadratique moyenne minimale : ", erreur)
-            print("  => Conclusion sur la nature de l'objet : unknown")
+            print("  => Conclusion sur la nature de l'objet : matériau non référencé dans la base de donnée.")
             print("  => Localisation : ", case,row)
         
         else:
             print("Erreur quadratique moyenne minimale : ", erreur)
             print("  => Conclusion sur la nature de l'objet : ", liste_matrix_ref[idx] )  
             print("  => Localisation : ", case,row)
+            
         return erreur
 
     def scan_plage(self, my_plage, liste_matrix_ref) : 
