@@ -65,11 +65,10 @@ class Spectre:
             else:
                 print("Erreur type plastique")
                 return
-            print("Creation spectre plastique")
+            #print("Creation spectre plastique")
         else:
-            print(len(liste_data_sable))
             liste_data = liste_data_sable
-            print("Creation spectre sable")
+            #print("Creation spectre sable")
 
 
         list_wavelength = []   
