@@ -9,6 +9,22 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
+
+
+
+# /!\ A CHANGER /!\ ==> importer les plages
+import numpy as np
+plage = np.array([['S','S','S','P','P','S','S','P','S','S','S'],
+                  ['S','P','S','P','P','S','S','P','S','S','S'],
+                  ['S','S','P','P','P','S','S','P','S','S','S'],
+                  ['S','S','S','P','P','S','S','P','S','S','S'],
+                  ['S','S','S','S','P','S','S','S','S','P','S'],
+                  ['P','S','S','P','S','S','S','P','P','S','S'],
+                  ['S','P','S','S','S','S','P','S','S','S','S'],
+                  ['S','S','S','S','S','S','S','S','S','S','S'],
+                  ['S','S','S','S','S','P','S','P','S','S','S'],
+                  ['S','S','S','P','S','S','S','P','S','S','S']])
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -56,12 +72,37 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.horizontalLayout_2, 1, 0, 1, 3)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.plage = QtWidgets.QLabel(self.centralwidget)
-        self.plage.setText("")
-        self.plage.setPixmap(QtGui.QPixmap(":/resource/img/plage.JPG"))
-        self.plage.setAlignment(QtCore.Qt.AlignCenter)
-        self.plage.setObjectName("plage")
-        self.horizontalLayout_3.addWidget(self.plage)
+        self.gridLayout_3 = QtWidgets.QGridLayout()
+        self.gridLayout_3.setObjectName("gridLayout_3")
+
+        listLabel = np.chararray((plage.shape[0],plage.shape[1]))
+        for y in range(plage.shape[0]): # nombre ligne
+            for x in range(plage.shape[1]): # chaque case de la ligne
+                labelName = ["label", y, x]
+                label = "label" + str(y) + str(x)
+                print(plage.shape[0])
+                print(label)
+                listLabel[y].append(label)
+                self.label = QtWidgets.QLabel(label, self)
+                self.label.setObjectName(label)
+                self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
+
+
+##############################
+        """ self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_3.addWidget(self.label_2, 0, 1, 1, 1)
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setObjectName("label")
+        self.gridLayout_3.addWidget(self.label, 0, 0, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_3.addWidget(self.label_3, 1, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_3.addWidget(self.label_4, 1, 1, 1, 1) """
+##############################
+        self.horizontalLayout_3.addLayout(self.gridLayout_3)
         self.spectre = QtWidgets.QLabel(self.centralwidget)
         self.spectre.setEnabled(True)
         self.spectre.setText("")
@@ -84,13 +125,28 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Projet Sandy"))
         self.descriptionPlastique.setText(_translate("MainWindow", "Description du plastique"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
-        self.nomPlage.setText(_translate("MainWindow", "Nom de la plage:"))
+        self.nomPlage.setText(_translate("MainWindow", "Nom de plage:"))
         self.pollutionPlage.setText(_translate("MainWindow", "Pollution de la plage:"))
+        self.label_2.setText(_translate("MainWindow", ""))
+        """ self.label.setText(_translate("MainWindow", "TextLabel"))
+        self.label_3.setText(_translate("MainWindow", "TextLabel"))
+        self.label_4.setText(_translate("MainWindow", "TextLabel")) """
+        self.label_4.setStyleSheet(
+            "background-color: {};".format(QtGui.QColor(255, 215, 0).name())
+        )
+
+    """ def drawBeach(self,gridLayout):
+        for row in plage:
+            for column in plage:
+                if (plage[row][column] == 'N'):
+                    self.gridLayout.addWidget(self.label) #a revoir """
 
 
+
+                    
 import resource_rc
 
 
