@@ -1,4 +1,5 @@
 import random   #import de la librairie random
+from Spectre import *
 
 # Notre objet Plage, il contient les cases faisant lien avec notre plage.
 class Plage:  
@@ -16,6 +17,11 @@ class Plage:
             for x in range(self.abs):
                 grille[y][x] = Case(x, y, self.abs, proba)
         return grille
+    
+    def get_dim_plage(self):
+        x = self.abs
+        y = self.ord
+        return x,y
     
     # retourne l'attribut grille de la classe
     def get_grille(self):
@@ -42,6 +48,12 @@ class Plage:
             print("--", end="", flush=True)
         print("-")
 
+    def get_specific_Case(self,x,y):
+        return self.grille[y][x]
+    
+    def print_specific_Case_infos(self,x,y):
+        self.grille[y][x].print_infos()
+
 
 # Notre objet Case, contient différents attributs permettant de définir la case
 class Case:
@@ -51,20 +63,23 @@ class Case:
         self.x = x
         self.y = y
         self.indice = self.set_indice(xmax)         # indice est le numéro de la case, par exemple, pour une plage en 3x3, les cases sont numérotées de 0 à 8
-        self.estPlactique = self.set_estPlactique(proba)  # y a t-il du plastique sur cette case ?
+        self.estPlastique = self.set_estPlastique(proba)  # y a t-il du plastique sur cette case ?
         self.spectre = self.set_spectre()           # Spectre lié à cette case, chaque case à un et unique objet Spectre
 
     # definit le Spectre de la Case en appelant le constructeur de la classe Spectre
     def set_spectre(self):
-        spectre = Spectre(self.estPlactique)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
+        spectre = Spectre(self.estPlastique,0.2,0.0005,1)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
         return spectre                      # à voir avec Quentin si cela lui va
 
-    # retourne l'attribut grille de la classe
     def get_spectre(self):
-        return self.spectre.get_estPlactique()
+        return self.spectre
+
+    # retourne l'attribut grille de la classe
+    def print_spectre(self):
+        return self.spectre.afficher()
 
     # definit si la Case contient du plastique ou non, definit via la variable 'proba'
-    def set_estPlactique(self, proba):
+    def set_estPlastique(self, proba):
         rand = random.random()
         if rand <= proba:
             return True
@@ -72,8 +87,8 @@ class Case:
             return False
     
     # retourne l'attribut grille de la classe
-    def get_estPlactique(self):
-        return self.isPlastic()
+    def get_estPlastique(self):
+        return self.estPlastique
 
     # definit l'indice de la case selon la formule suivante. /!\ indice servira surement uniquement pour le debugging
     def set_indice(self, xmax):
@@ -85,28 +100,18 @@ class Case:
 
     # retourne l'attribut grille de la classe
     def get_case(self):
-        if self.estPlactique:
+        if self.estPlastique:
             return 'P'
         else:
             return 'N'
 
     # affiche une description précise de la case, tous les attributs sont affichés. /!\ cette fonction servira surement uniquement pour le debugging
     def print_infos(self):
-        print("I print the infos !")
+        print("Informations de la case :")
         print("x = ", self.x)
         print("y = ", self.y)
         print("indice = ", self.get_indice())
-        print("isPlastic = ", self.get_estPlactique())
-        print("spectre = ", self.get_spectre(), "\n")
-
-
-#class de demo en attendant la véritable classe Spectre
-class Spectre: 
-
-    # constructeur simpliste et temporaire
-    def __init__(self, estPlactique):
-        self.estPlactique = estPlactique
-
-    # retourne l'attribut isPlastic de la classe
-    def get_isPlastic(self):
-        return self.estPlactique
+        print("isPlastic = ", self.get_estPlastique())
+        print("\nInformations du Spectre :")
+        print("spectre = voir fenetre")
+        self.print_spectre()
