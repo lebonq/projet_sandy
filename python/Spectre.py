@@ -69,7 +69,10 @@ class Spectre:
             #print("Creation spectre plastique")
         else:
 <<<<<<< HEAD
+<<<<<<< HEAD
             #print(len(liste_data_sable))
+=======
+>>>>>>> bfdedb7cca8cde5f5ec57860456e11c8c9913315
 =======
 >>>>>>> bfdedb7cca8cde5f5ec57860456e11c8c9913315
             liste_data = liste_data_sable
