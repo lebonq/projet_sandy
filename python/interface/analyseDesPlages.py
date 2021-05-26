@@ -109,11 +109,13 @@ class Ui_MainWindow(object):
                         self.label = QtWidgets.QLabel(self.centralwidget)
                         self.label.setObjectName(label)
                         self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                        self.label.setText(_translate("MainWindow", label))
-                        # if (plage[x][y] == 'P'):
                         
-                        self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
-                        print(label)
+                        if (plage[x][y] == 'S'):
+                            self.label.setText(_translate("MainWindow", 'S'))
+                            self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
+                        else:
+                            self.label.setText(_translate("MainWindow", 'P'))
+                            self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
         
 
                 
