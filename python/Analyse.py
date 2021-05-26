@@ -154,3 +154,9 @@ def scan_plage(my_plage, list_wavelength, liste_matrix_ref) :
             analyse = analysis(matrix_to_studied,liste_matrix_ref,row,case)
 
     return analyse
+
+
+my_plage = Plage(2,2,0.3)     #les parametres correspondent à : longeur(x), largeur(y), probabilité d'avoir du plastique.
+my_plage.print_plage()
+
+scan_plage(my_plage,list_wavelength,liste_matrix_ref)
