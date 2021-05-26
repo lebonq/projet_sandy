@@ -9,22 +9,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
-
-
-# /!\ A CHANGER /!\ ==> importer les plages
-import numpy as np
-plage = np.array([['S','S','S','P','P','S','S','P','S','S','S'],
-                  ['S','P','S','P','P','S','S','P','S','S','S'],
-                  ['S','S','P','P','P','S','S','P','S','S','S'],
-                  ['S','S','S','P','P','S','S','P','S','S','S'],
-                  ['S','S','S','S','P','S','S','S','S','P','S'],
-                  ['P','S','S','P','S','S','S','P','P','S','S'],
-                  ['S','P','S','S','S','S','P','S','S','S','S'],
-                  ['S','S','S','S','S','S','S','S','S','S','S'],
-                  ['S','S','S','S','S','P','S','P','S','S','S'],
-                  ['S','S','S','P','S','S','S','P','S','S','S']])
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -48,7 +32,6 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(26)
         font.setBold(True)
-        font.setWeight(75)
         self.Titre.setFont(font)
         self.Titre.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.Titre.setFocusPolicy(QtCore.Qt.NoFocus)
@@ -75,6 +58,19 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QtWidgets.QGridLayout()
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout_3.addWidget(self.label_2, 0, 1, 1, 1)
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setMaximumSize(QtCore.QSize(15, 15))
+        self.label.setObjectName("label")
+        self.gridLayout_3.addWidget(self.label, 0, 0, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_3.addWidget(self.label_3, 1, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_3.addWidget(self.label_4, 1, 1, 1, 1)
         self.horizontalLayout_3.addLayout(self.gridLayout_3)
         self.spectre = QtWidgets.QLabel(self.centralwidget)
         self.spectre.setEnabled(True)
@@ -86,7 +82,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addLayout(self.horizontalLayout_3, 5, 0, 1, 3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1126, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1126, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -98,25 +94,17 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Projet Sandy"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.descriptionPlastique.setText(_translate("MainWindow", "Description du plastique"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.nomPlage.setText(_translate("MainWindow", "Nom de plage:"))
         self.pollutionPlage.setText(_translate("MainWindow", "Pollution de la plage:"))
-        for y in range(plage.shape[1]): # nombre ligne
-                    for x in range(plage.shape[0]): # chaque case de la ligne
-                        label = "label" + str(y) + str(x)
-                        self.label = QtWidgets.QLabel(self.centralwidget)
-                        self.label.setObjectName(label)
-                        self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                        self.label.setText(_translate("MainWindow", label))
-                        # if (plage[x][y] == 'P'):
-                        
-                        self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
-                        print(label)
-        
+        self.label_2.setText(_translate("MainWindow", "TextLabel"))
+        self.label.setText(_translate("MainWindow", "TextLabel"))
+        self.label_3.setText(_translate("MainWindow", "TextLabel"))
+        self.label_4.setText(_translate("MainWindow", "TextLabel"))
 
-                
+
 import resource_rc
 
 
