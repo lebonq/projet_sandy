@@ -1,11 +1,5 @@
 import numpy as np
-from Spectre import Spectre
-from Spectre import liste_data_orange_pp
-from Spectre import liste_data_white_pe
-from Spectre import liste_data_blue_pp
-from Spectre import liste_data_bottle
-from Spectre import liste_data_white_polyester
-from Spectre import liste_type_plastique
+from Spectre import *
 
 # LISTE LONGUEURES D'ONDES DE 400 A 2400 nm
 list_wavelength = []   
@@ -28,7 +22,7 @@ matrix_ref_white_polyester = np.append(list_wavelength,liste_data_white_polyeste
 matrix_ref_white_pe = np.append(list_wavelength,liste_data_white_pe,axis=1) 
 
 # CREATION SPECTRE
-spectre = Spectre(True,0.2,0.0005,1,"white_pe")
+spectre = Spectre(False,0.2,0.0005,1,"blue_pp")
 spectre.afficher()  
 values = spectre.get_reflectance()
 wavelength = spectre.get_longeur_donde()
@@ -142,7 +136,7 @@ def analysis (matrix_to_studied, liste_type_plastique):
     idx = erreur.index(min(erreur))
     erreur = min(erreur)
     
-    if (erreur > 0.5) :
+    if (erreur > 0.009) :
         print("Matériau non référencé dans la base de données.")
      
     print("Erreur quadratique moyenne minimale : ", erreur)
