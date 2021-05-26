@@ -18,6 +18,11 @@ class Plage:
                 grille[y][x] = Case(x, y, self.abs, proba)
         return grille
     
+    def get_dim_plage(self):
+        x = self.abs
+        y = self.ord
+        return x,y
+    
     # retourne l'attribut grille de la classe
     def get_grille(self):
         return self.grille

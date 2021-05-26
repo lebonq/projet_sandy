@@ -139,27 +139,66 @@ class Analyse:
         
         idx = erreur.index(min(erreur))
         erreur = min(erreur)
-        
+
         if (erreur > 0.009) :
             print("Erreur quadratique moyenne minimale : ", erreur)
-            print("  => Conclusion sur la nature de l'objet : matériau non référencé dans la base de donnée.")
+            print("  => Conclusion sur la nature de l'objet : matériau non référencé dans la base de donnée")
             print("  => Localisation : ", case,row)
         
         else:
             print("Erreur quadratique moyenne minimale : ", erreur)
             print("  => Conclusion sur la nature de l'objet : ", liste_matrix_ref[idx] )  
             print("  => Localisation : ", case,row)
-            
-        return erreur
+
+        return idx
 
     def scan_plage(self, my_plage, liste_matrix_ref) : 
         wavelength=[]
         values=[]
-        for row in range(0,2):
-            for case in range(0,2):
+        x = my_plage.get_dim_plage()[0]
+        y = my_plage.get_dim_plage()[1]
+        count_global = 0
+        count_PP = 0
+        count_PELD = 0
+        count_PET = 0
+        count_Polyester = 0
+
+        for row in range(0,x):
+            for case in range(0,y):
                 wavelength = my_plage.get_specific_Case(row,case).get_spectre().get_longeur_donde()
                 values = my_plage.get_specific_Case(row,case).get_spectre().get_reflectance()
                 matrix_to_studied = self.init_matrix_to_studied(wavelength,values,self.list_wavelength)
-                analyse = self.analysis(matrix_to_studied,liste_matrix_ref,row,case)
+                idx = self.analysis(matrix_to_studied,liste_matrix_ref,row,case)
+                if (idx <= 4):
+                    count_global +=1
+                if (idx == 0):
+                    count_PP += 1
+                if (idx == 1):
+                    count_PELD += 1
+                if (idx == 2):
+                    count_PP += 1
+                if (idx == 3):
+                    count_PET +=1
+                if (idx == 4):
+                    count_Polyester += 1
+        
+        dim = x * y
+        print ("--------------------------------")
+        print ("La plage contient",'{0:.0%}'.format(count_global/dim),"de plastique.")
+        if(count_global != 0):
+            print ("Détails des plastiques détectés")
+            print ("--------------------------------")
+        if(count_PP != 0):
+            print ("Polypropylène (PP) : ",'{0:.0%}'.format(count_PP/count_global))
+        if(count_PELD != 0):
+            print ("Polyéthylène basse densité (PE-LD) : ",'{0:.0%}'.format(count_PELD/count_global))
+        if (count_PET != 0):
+            print ("Polyéthylène téréphtalate (PET) : ",'{0:.0%}'.format(count_PET/count_global))
+        if (count_Polyester!=0):
+            print ("Polyester : ",'{0:.0%}'.format(count_Polyester/count_global))
 
-        return analyse
+        return count_global
+
+
+        
+
