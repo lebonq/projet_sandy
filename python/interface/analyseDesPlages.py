@@ -111,7 +111,7 @@ class Ui_MainWindow(QMainWindow):
         self.label.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        self.horizontalLayout_3.addWidget(self.label)"""
+        self.horizontalLayout_3.addWidget(self.label) """
 
 #############
         self.horizontalLayout_3.addLayout(self.gridLayout_3)
@@ -209,7 +209,6 @@ class Ui_MainWindow(QMainWindow):
         self.Titre.setText(_translate("MainWindow","<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.nomPlage.setText(_translate("MainWindow","Nom de la plage:"))
         self.pollutionPlage.setText(_translate("MainWindow","Pollution de la plage:"))
-        #self.setLabels()
         self.setBeach()
         #self.label.setText(_translate("MainWindow", 'S'))
         #self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
