@@ -10,23 +10,18 @@ import resource_rc
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QPen
-
+from Analyse import *
+from Plage import *
 import numpy as np
 
-#plage = Plage(10,10,0.5)
+my_plage = Plage(10,10,0.5)
+my_analyse = Analyse().affichage_scan(my_plage,liste_matrix_ref)
 
-plage = np.array([['S', 'S', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'P', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'P', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'S', 'P', 'S', 'S', 'S', 'S', 'P', 'S'],
-                  ['P', 'S', 'S', 'P', 'S', 'S', 'S', 'P', 'P', 'S', 'S'],
-                  ['S', 'P', 'S', 'S', 'S', 'S', 'P', 'S', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'S', 'S', 'P', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'P', 'S', 'S', 'S', 'P', 'S', 'S', 'S']])
-
-
+plage = [ [0]*my_plage.abs for i in range(my_plage.ord)]
+for y in range(my_plage.ord):
+    for x in range(my_plage.abs):
+        plage[y][x] = my_plage.get_specific_Case(y,x).get_case()
+plage = np.array(plage)
 
 
 #labelPlage = np.chararray((plage.shape[0], plage.shape[1]))
@@ -182,10 +177,10 @@ class Ui_MainWindow(QMainWindow):
                 #self.label.clicked.connect(self.close)
                 self.label.mousePressEvent = self.close
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                if (plage[x][y] == 'S'):
+                if (plage[x][y] == 'N'):
                     # self.label.clicked.connect(self.spectrePlastique)
                     self.label.mousePressEvent = self.spectrePlastique
-                    self.label.setText(_translate("MainWindow", 'S'))
+                    self.label.setText(_translate("MainWindow", 'N'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
                 elif (plage[x][y] == 'P'):
                     # self.label.clicked.connect(self.spectreSable)
