@@ -12,7 +12,7 @@ class Analyse:
         self.liste_data_bottle = np.reshape(liste_data_bottle,(101,1)) 
         self.liste_data_orange_pp = np.reshape(liste_data_orange_pp,(101,1))
         self.liste_data_white_polyester = np.reshape(liste_data_white_polyester,(101,1))
-        self.liste_data_white_pe = np.reshape(liste_data_white_pe,(101,1))
+        self.liste_data_white_pe = np.reshape(liste_data_white_peld,(101,1))
         self.liste_data_sable = np.reshape(liste_data_sable,(101,1))
         self.matrix_ref_blue_pp = np.append(self.list_wavelength,self.liste_data_blue_pp,axis=1)
         self.matrix_ref_bottle = np.append(self.list_wavelength,self.liste_data_bottle,axis=1)
