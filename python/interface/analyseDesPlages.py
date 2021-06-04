@@ -118,7 +118,7 @@ class Ui_MainWindow(QMainWindow):
         self.spectre = QtWidgets.QLabel(self.centralwidget)
         self.spectre.setEnabled(True)
         self.spectre.setText("")  # label vide
-        self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png"))  # affichage de l'image
+        #self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png"))  # affichage de l'image
         self.spectre.setAlignment(QtCore.Qt.AlignCenter)
         self.spectre.setObjectName("spectre")
         self.horizontalLayout_3.addWidget(self.spectre)
@@ -138,25 +138,16 @@ class Ui_MainWindow(QMainWindow):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     # affichage du spectre plastique
-    """ def spectrePlastique(self):
-            self.spectre = QtWidgets.QLabel(self.centralwidget)
-            self.spectre.setEnabled(True)
-            self.spectre.setText("") # label vide
-            self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png")) # affichage de l'image
-            self.spectre.setAlignment(QtCore.Qt.AlignCenter)
-            self.spectre.setObjectName("spectre")
-            self.horizontalLayout_3.addWidget(self.spectre) """
+    def spectrePlastique(self, event):
+        self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png")) # affichage de l'image
+        self.spectre.show()
+
 
     # affichage du spectre sable
     # ne marche pas /!\
-    """ def spectreSable(self):
-            self.plage = QtWidgets.QLabel(self.centralwidget)
-            self.plage.setEnabled(True)
-            self.plage.setText("") # label vide
-            self.plage.setPixmap(QtGui.QPixmap(":/resource/img/plage.JPG")) # affichage de l'image
-            self.plage.setAlignment(QtCore.Qt.AlignCenter)
-            self.plage.setObjectName("plage")
-            self.horizontalLayout_3.addWidget(self.plage) """
+    def spectreSable(self, event):
+        self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/plage.JPG")) # affichage de l'image
+        self.spectre.show()
 
     # fonction permettant de definir QPainter et de dessiner
     """ def paintEvent(self, event):
@@ -181,17 +172,20 @@ class Ui_MainWindow(QMainWindow):
         for y in range(plage.shape[1]):  # nombre ligne
             for x in range(plage.shape[0]):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
-                self.label = QtWidgets.QLabel(self.centralwidget)
-                #self.label = ClickableLabel(self.centralwidget)
+                #self.label = QtWidgets.QLabel(self.centralwidget)
+                self.label = ClickableLabel(self.centralwidget)
                 self.label.setObjectName(label)
                 #self.label.clicked.connect(self.close)
+                self.label.mousePressEvent = self.close
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
                 if (plage[x][y] == 'S'):
                     # self.label.clicked.connect(self.spectrePlastique)
+                    self.label.mousePressEvent = self.spectrePlastique
                     self.label.setText(_translate("MainWindow", 'S'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
                 elif (plage[x][y] == 'P'):
                     # self.label.clicked.connect(self.spectreSable)
+                    self.label.mousePressEvent = self.spectreSable
                     self.label.setText(_translate("MainWindow", 'P'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
                 else:
