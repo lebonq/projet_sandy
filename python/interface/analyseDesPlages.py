@@ -107,15 +107,15 @@ class Ui_MainWindow(QMainWindow):
                         #self.label = ClickableLabel(self.centralwidget)
                         self.label.setObjectName(label)                        
                         self.gridLayout_3.addWidget(self.label, y, x, 1, 1) """
-        self.label = QtWidgets.QLabel(self.centralwidget)
+        """ self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setMinimumSize(QtCore.QSize(0, 0))
         self.label.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        self.horizontalLayout_3.addWidget(self.label)
+        self.horizontalLayout_3.addWidget(self.label) """
 
 #############
-        #self.horizontalLayout_3.addLayout(self.gridLayout_3)
+        self.horizontalLayout_3.addLayout(self.gridLayout_3)
         self.spectre = QtWidgets.QLabel(self.centralwidget)
         self.spectre.setEnabled(True)
         self.spectre.setText("")  # label vide
@@ -210,7 +210,7 @@ class Ui_MainWindow(QMainWindow):
         self.Titre.setText(_translate("MainWindow","<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.nomPlage.setText(_translate("MainWindow","Nom de la plage:"))
         self.pollutionPlage.setText(_translate("MainWindow","Pollution de la plage:"))
-        self.setLabels()
+        self.setBeach()
         #self.label.setText(_translate("MainWindow", 'S'))
         #self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
         #self.ui.label.clicked.connect(self.close)
