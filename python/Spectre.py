@@ -55,8 +55,8 @@ class Spectre:
         if(self.plastique == True):
             if(self.type_plastique == "orange_pp"):
                 liste_data = liste_data_orange_pp
-            elif(self.type_plastique == "white_pe"):
-                liste_data = liste_data_white_pe
+            elif(self.type_plastique == "white_peld"):
+                liste_data = liste_data_white_peld
             elif(self.type_plastique == "blue_pp"):
                 liste_data = liste_data_blue_pp
             elif(self.type_plastique == "bottle"):
@@ -65,6 +65,7 @@ class Spectre:
                 liste_data = liste_data_white_polyester
             else:
                 print("Erreur type plastique")
+                print(self.type_plastique)
                 return
             #print("Creation spectre plastique")
         else:
