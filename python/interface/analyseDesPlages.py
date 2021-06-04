@@ -138,12 +138,7 @@ class Ui_MainWindow(object):
                 self.label = ClickableLabel(self.centralwidget)
                 self.label.setObjectName(label)
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-<<<<<<< HEAD
                 if (plage[x][y] == 'N'):
-                    # self.label.clicked.connect(self.spectrePlastique)
-=======
-                if (plage[x][y] == 'S'):
->>>>>>> 4a28aba16faff13e58df639d7f3ffb2df92ee6fa
                     self.label.mousePressEvent = self.spectrePlastique
                     self.label.setText(_translate("MainWindow", 'N'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
