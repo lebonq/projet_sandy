@@ -10,9 +10,11 @@ import resource_rc
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QPen
- 
-# /!\ A CHANGER /!\ ==> importer les plages
+
 import numpy as np
+
+#plage = Plage(10,10,0.5)
+
 plage = np.array([['S', 'S', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
                   ['S', 'P', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
                   ['S', 'S', 'P', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
@@ -23,6 +25,8 @@ plage = np.array([['S', 'S', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
                   ['S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'],
                   ['S', 'S', 'S', 'S', 'S', 'P', 'S', 'P', 'S', 'S', 'S'],
                   ['S', 'S', 'S', 'P', 'S', 'S', 'S', 'P', 'S', 'S', 'S']])
+
+
 
 
 #labelPlage = np.chararray((plage.shape[0], plage.shape[1]))

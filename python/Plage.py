@@ -17,6 +17,9 @@ class Plage:
             for x in range(self.abs):
                 grille[y][x] = Case(x, y, self.abs, proba)
         return grille
+
+    def get_NP_grille(self):
+        tableau = []
     
     def get_dim_plage(self):
         x = self.abs
