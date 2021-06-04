@@ -69,6 +69,7 @@ class Spectre:
                 liste_data = liste_data_pvc
             else:
                 print("Erreur type plastique")
+                print(self.type_plastique)
                 return
             #print("Creation spectre plastique")
         else:
