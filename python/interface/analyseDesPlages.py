@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'test.ui'
+# Form implementation generated from reading ui file 'analyseDesPlages.ui'
 #
 # Created by: PyQt5 UI code generator 5.12
 #
@@ -53,12 +53,10 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.descriptionPlastique, 8, 0, 2, 3)
         self.Titre = QtWidgets.QLabel(self.centralwidget)
         self.Titre.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.Titre.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.Titre.sizePolicy().hasHeightForWidth())
         self.Titre.setSizePolicy(sizePolicy)
         self.Titre.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
@@ -74,8 +72,7 @@ class Ui_MainWindow(object):
         self.Titre.setObjectName("Titre")
         self.gridLayout_2.addWidget(self.Titre, 0, 0, 1, 3)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setSizeConstraint(
-            QtWidgets.QLayout.SetMinimumSize)
+        self.horizontalLayout_2.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.nomPlage = QtWidgets.QLabel(self.centralwidget)
         self.nomPlage.setEnabled(True)
@@ -99,6 +96,8 @@ class Ui_MainWindow(object):
         self.spectre.setEnabled(True)
         self.spectre.setText("")  # label vide
         #self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png"))  # affichage de l'image à l'ouverture de l'interface
+        #self.spectre.setScaledContents(True) # met la taille de l'image a la taille max du QLabel
+        #self.spectre.setMaximumSize(QtCore.QSize(350, 350)) # maximise la taille de l'image en 350x350
         self.spectre.setAlignment(QtCore.Qt.AlignCenter)
         self.spectre.setObjectName("spectre")
         self.horizontalLayout_3.addWidget(self.spectre)
@@ -119,17 +118,21 @@ class Ui_MainWindow(object):
 
     # affichage du spectre plastique
     def spectrePlastique(self, event):
-        self.spectre.setPixmap(QPixmap(':/resource/img/plage.JPG')) # affichage de l'image
+        _translate = QtCore.QCoreApplication.translate
+        self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
+        self.spectre.setPixmap(QPixmap(':/resource/img/spectre.png')) # affichage de l'image
         self.spectre.show()
 
 
     # affichage du spectre sable
     def spectreSable(self, event):
-        self.spectre.setPixmap(QPixmap(':/resource/img/spectre.png')) # affichage de l'image
+        _translate = QtCore.QCoreApplication.translate
+        self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
+        self.spectre.setPixmap(QPixmap(':/resource/img/plage.JPG')) # affichage de l'image
         self.spectre.show()
 
 
-
+    # creation de la plage
     def setBeach(self):
         _translate = QtCore.QCoreApplication.translate
         for y in range(plage.shape[1]):  # nombre ligne
@@ -139,11 +142,11 @@ class Ui_MainWindow(object):
                 self.label.setObjectName(label)
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
                 if (plage[x][y] == 'N'):
-                    self.label.mousePressEvent = self.spectrePlastique
+                    self.label.mousePressEvent = self.spectreSable
                     self.label.setText(_translate("MainWindow", 'N'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
                 elif (plage[x][y] == 'P'):
-                    self.label.mousePressEvent = self.spectreSable
+                    self.label.mousePressEvent = self.spectrePlastique
                     self.label.setText(_translate("MainWindow", 'P'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
                 else:
@@ -155,7 +158,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow","Projet Sandy"))
-        self.descriptionPlastique.setText(_translate("MainWindow","Description du plastique"))
+        self.descriptionPlastique.setText(_translate("MainWindow","Description"))
         self.Titre.setText(_translate("MainWindow","<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.nomPlage.setText(_translate("MainWindow","Nom de la plage:"))
         self.pollutionPlage.setText(_translate("MainWindow","Pollution de la plage:"))
