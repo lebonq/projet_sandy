@@ -10,22 +10,19 @@ import resource_rc
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QPen
-
-# /!\ A CHANGER /!\ ==> importer les plages
+from Analyse import *
+from Plage import *
 import numpy as np
-plage = np.array([['S', 'S', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'P', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'P', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'P', 'P', 'S', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'S', 'P', 'S', 'S', 'S', 'S', 'P', 'S'],
-                  ['P', 'S', 'S', 'P', 'S', 'S', 'S', 'P', 'P', 'S', 'S'],
-                  ['S', 'P', 'S', 'S', 'S', 'S', 'P', 'S', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'S', 'S', 'P', 'S', 'P', 'S', 'S', 'S'],
-                  ['S', 'S', 'S', 'P', 'S', 'S', 'S', 'P', 'S', 'S', 'S']])
 
+my_plage = Plage(50,50,0.5)
+my_analyse = Analyse().affichage_scan(my_plage,liste_matrix_ref)
 
-#labelPlage = np.chararray((plage.shape[0], plage.shape[1]))
+plage = [ [0]*my_plage.abs for i in range(my_plage.ord)]
+for y in range(my_plage.ord):
+    for x in range(my_plage.abs):
+        plage[y][x] = my_plage.get_specific_Case(y,x).get_case()
+plage = np.array(plage)
+
 
 # Override de la classe QLabel
 # Source: https://python-forum.io/thread-17718.html
@@ -40,9 +37,8 @@ class ClickableLabel(QtWidgets.QLabel):
             self.clicked.emit()
 
 
-# class Ui_MainWindow(object): --> nom de classe de base
-
-class Ui_MainWindow(QMainWindow):
+class Ui_MainWindow(object):
+    
     # creation et placement des QWidget
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -96,30 +92,13 @@ class Ui_MainWindow(QMainWindow):
         self.gridLayout_3 = QtWidgets.QGridLayout()
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.setBeach()
-        
-
-        # Creation de n label representant n elements sur la plage (sable ou plastique)
-        """ for y in range(plage.shape[1]): # nombre ligne
-                    for x in range(plage.shape[0]): # chaque case de la ligne
-                        label = "label" + str(y) + str(x)
-                        self.label = QtWidgets.QLabel(self.centralwidget)
-                        #self.label = ClickableLabel(self.centralwidget)
-                        self.label.setObjectName(label)                        
-                        self.gridLayout_3.addWidget(self.label, y, x, 1, 1) """
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setMinimumSize(QtCore.QSize(0, 0))
-        self.label.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.horizontalLayout_3.addWidget(self.label)
 
 #############
-        #self.horizontalLayout_3.addLayout(self.gridLayout_3)
+        self.horizontalLayout_3.addLayout(self.gridLayout_3)
         self.spectre = QtWidgets.QLabel(self.centralwidget)
         self.spectre.setEnabled(True)
         self.spectre.setText("")  # label vide
-        self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png"))  # affichage de l'image
+        #self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png"))  # affichage de l'image à l'ouverture de l'interface
         self.spectre.setAlignment(QtCore.Qt.AlignCenter)
         self.spectre.setObjectName("spectre")
         self.horizontalLayout_3.addWidget(self.spectre)
@@ -139,70 +118,40 @@ class Ui_MainWindow(QMainWindow):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     # affichage du spectre plastique
-    """ def spectrePlastique(self):
-            self.spectre = QtWidgets.QLabel(self.centralwidget)
-            self.spectre.setEnabled(True)
-            self.spectre.setText("") # label vide
-            self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png")) # affichage de l'image
-            self.spectre.setAlignment(QtCore.Qt.AlignCenter)
-            self.spectre.setObjectName("spectre")
-            self.horizontalLayout_3.addWidget(self.spectre) """
+    def spectrePlastique(self, event):
+        self.spectre.setPixmap(QPixmap(':/resource/img/plage.JPG')) # affichage de l'image
+        self.spectre.show()
+
 
     # affichage du spectre sable
-    # ne marche pas /!\
-    """ def spectreSable(self):
-            self.plage = QtWidgets.QLabel(self.centralwidget)
-            self.plage.setEnabled(True)
-            self.plage.setText("") # label vide
-            self.plage.setPixmap(QtGui.QPixmap(":/resource/img/plage.JPG")) # affichage de l'image
-            self.plage.setAlignment(QtCore.Qt.AlignCenter)
-            self.plage.setObjectName("plage")
-            self.horizontalLayout_3.addWidget(self.plage) """
+    def spectreSable(self, event):
+        self.spectre.setPixmap(QPixmap(':/resource/img/spectre.png')) # affichage de l'image
+        self.spectre.show()
 
-    # fonction permettant de definir QPainter et de dessiner
-    """ def paintEvent(self, event):
-        self.qp = QPainter()
-        self.qp.begin(self)
-        self.drawLine(event, self.qp)
-        self.qp.end() """
 
-    # fonction permettant de dessiner des rectangles
-    # def drawRectangle():
-    def setLabels(self):
-        pixmap = QPixmap(self.label.size())
-        print(self.label.size())
-        pixmap.fill(QColor(255, 215, 0))  # dernier 0 = opacité de la couleur
-        self.label.setScaledContents(True)
-        self.label.setText("oui")
-        self.label.setPixmap(pixmap)
-        print(self.label.size())
 
     def setBeach(self):
         _translate = QtCore.QCoreApplication.translate
         for y in range(plage.shape[1]):  # nombre ligne
             for x in range(plage.shape[0]):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
-                #self.label = QtWidgets.QLabel(self.centralwidget)
                 self.label = ClickableLabel(self.centralwidget)
                 self.label.setObjectName(label)
-                self.label.clicked.connect(self.close)
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                if (plage[x][y] == 'S'):
-                    # self.label.clicked.connect(self.spectrePlastique)
-                    self.label.setText(_translate("MainWindow", 'S'))
+                if (plage[x][y] == 'N'):
+                    self.label.mousePressEvent = self.spectrePlastique
+                    self.label.setText(_translate("MainWindow", 'N'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
                 elif (plage[x][y] == 'P'):
-                    # self.label.clicked.connect(self.spectreSable)
+                    self.label.mousePressEvent = self.spectreSable
                     self.label.setText(_translate("MainWindow", 'P'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
                 else:
                     self.label.setText(_translate("MainWindow", 'N/A'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 255, 255, 0).name()))
-                
-                # QtWidgets.QApplication.processEvents()
+
 
     # initialisation des QWidget
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow","Projet Sandy"))
@@ -210,30 +159,8 @@ class Ui_MainWindow(QMainWindow):
         self.Titre.setText(_translate("MainWindow","<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.nomPlage.setText(_translate("MainWindow","Nom de la plage:"))
         self.pollutionPlage.setText(_translate("MainWindow","Pollution de la plage:"))
-        self.setLabels()
-        #self.label.setText(_translate("MainWindow", 'S'))
-        #self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
-        #self.ui.label.clicked.connect(self.close)
+        self.setBeach()
 
-        # Creation de n label representant n elements sur la plage (sable ou plastique)
-        """ for y in range(plage.shape[1]): # nombre ligne
-            for x in range(plage.shape[0]): # chaque case de la ligne
-                label = "label" + str(y) + str(x)
-                #self.label = QtWidgets.QLabel(self.centralwidget)
-                #self.label = ClickableLabel(self.centralwidget)
-                #self.label.setObjectName(label)                        
-                if (plage[x][y] == 'S'):
-                    #self.label.clicked.connect(self.spectrePlastique)
-                    print(label)
-                    self.label.setText(_translate("MainWindow", 'S'))
-                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
-                else:
-                    #self.label.clicked.connect(self.spectreSable)
-                    self.label.setText(_translate("MainWindow", 'P'))
-                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
-
-                #self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                #QtWidgets.QApplication.processEvents() """
 
 
 # main
