@@ -14,7 +14,7 @@ from Analyse import *
 from Plage import *
 import numpy as np
 
-my_plage = Plage(50,50,0.5)
+my_plage = Plage(10,10,0.5)
 my_analyse = Analyse().affichage_scan(my_plage,liste_matrix_ref)
 
 plage = [ [0]*my_plage.abs for i in range(my_plage.ord)]
