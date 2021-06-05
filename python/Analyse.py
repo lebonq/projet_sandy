@@ -14,6 +14,7 @@ class Analyse:
         self.liste_data_white_polyester = np.reshape(liste_data_white_polyester,(101,1))
         self.liste_data_white_peld = np.reshape(liste_data_white_peld,(101,1))
         self.liste_data_pvc = np.reshape(liste_data_pvc,(101,1))
+        self.list_data_polystyrene = np.reshape(liste_data_polystyrene,(101,1))
         self.liste_data_sable = np.reshape(liste_data_sable,(101,1))
         
         self.matrix_ref_blue_pp = np.append(self.list_wavelength,self.liste_data_blue_pp,axis=1)
@@ -22,6 +23,7 @@ class Analyse:
         self.matrix_ref_white_polyester = np.append(self.list_wavelength,self.liste_data_white_polyester,axis=1)
         self.matrix_ref_white_peld = np.append(self.list_wavelength,self.liste_data_white_peld,axis=1) 
         self.matrix_ref_pvc = np.append(self.list_wavelength,self.liste_data_pvc,axis=1)
+        self.matrix_ref_polystyrene = np.append(self.list_wavelength,self.list_data_polystyrene,axis = 1)
         self.matrix_ref_sable = np.append(self.list_wavelength,self.liste_data_sable,axis=1)
 
 
@@ -140,6 +142,9 @@ class Analyse:
                 matrix_ref = self.matrix_ref_pvc
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif ( i == 6):
+                matrix_ref = self.matrix_ref_polystyrene
+                erreur.append(self.mse(matrix_ref,matrix_to_studied))
+            elif ( i == 7):
                 matrix_ref = self.matrix_ref_sable
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
         
@@ -173,6 +178,7 @@ class Analyse:
         count_PET = 0
         count_Polyester = 0
         count_PVC = 0
+        count_polystyrene = 0
         x = my_plage.get_dim_plage()[0]
         y = my_plage.get_dim_plage()[1]
 
@@ -188,7 +194,7 @@ class Analyse:
                 my_plage.get_specific_Case(liste_erreur[i][2],liste_erreur[i][3]).typePlastique = liste_matrix_ref[liste_erreur[i][1]]
                 print("  => Localisation : ",liste_erreur[i][2],liste_erreur[i][3])
             
-            if(liste_erreur[i][1] <=  5 and liste_erreur[i][0] < 0.009 ):
+            if(liste_erreur[i][1] <=  6 and liste_erreur[i][0] < 0.009 ):
                 count_global += 1
             if(liste_erreur[i][1] == 0 and liste_erreur[i][0] < 0.009):
                 count_PP += 1
@@ -202,6 +208,9 @@ class Analyse:
                 count_Polyester += 1
             if(liste_erreur[i][1] == 5 and liste_erreur[i][0] < 0.009):
                 count_PVC += 1
+            if(liste_erreur[i][1] == 6 and liste_erreur[i][0] < 0.009):
+                count_polystyrene += 1
+
             
         dim = x * y
         print ("--------------------------------")
@@ -219,6 +228,8 @@ class Analyse:
             print ("Polyester : ",'{0:.0%}'.format(count_Polyester/count_global))
         if (count_PVC != 0):
             print ("PVC : ",'{0:.0%}'.format(count_PVC/count_global))
+        if (count_polystyrene != 0):
+            print ("Polystyrene : ",'{0:.0%}'.format(count_polystyrene/count_global))
 
 
         
