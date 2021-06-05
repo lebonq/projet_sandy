@@ -5,7 +5,7 @@ moteur_a = Moteur()
 
 @route('/moteura')
 def index():
-    return template("test_web", vitesse = moteur_a.vitesse_value, marche = moteur_a.marche_state,sens = moteur_a.sens_state)
+    return template("interface_moteur_a", vitesse = moteur_a.vitesse_value, marche = moteur_a.marche_state,sens = moteur_a.sens_state)
 
 @route('/moteura', method='POST')
 def traitement():
@@ -29,6 +29,6 @@ def traitement():
     elif(backward is not None):
         moteur_a.sens(False)
 
-    return template("test_web", vitesse = moteur_a.vitesse_value, marche = moteur_a.marche_state,sens = moteur_a.sens_state)
+    return template("interface_moteur_a", vitesse = moteur_a.vitesse_value, marche = moteur_a.marche_state,sens = moteur_a.sens_state)
 
 run(host='192.168.43.158', port=8080)# changer en fonction de l'ip du raspberry
