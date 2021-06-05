@@ -28,7 +28,7 @@ class Moteur:
         self.pwm =GPIO.PWM(self.ena,100)
         self.pwm.start(self.vitesse_value)
 
-    """ state boolean"""
+    #state boolean
     def marche(self, state):
         self.marche_state = state
         if(self.marche_state == True):
@@ -59,6 +59,7 @@ class Moteur:
             GPIO.output(self.in1,GPIO.HIGH)
             GPIO.output(self.in2,GPIO.LOW)
         else:
+            print("Set to backward")
             GPIO.output(self.in1,GPIO.LOW)
             GPIO.output(self.in2,GPIO.HIGH)
 
