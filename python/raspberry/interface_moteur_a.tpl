@@ -1,3 +1,4 @@
+<title>Moteur A</title>
 <p>Vitesse = {{vitesse}} Marche = {{marche}} Sens = {{sens}} </p>
 <form action="/moteura" method="POST">
     <input type="range" min="1" max="100" value="{{vitesse}}" class="slider" name="speed"></br>
