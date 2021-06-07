@@ -4,7 +4,7 @@
 
 ## Général
 
-**1. Context :**
+**1. Contexte :**
 
 Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentent aujourd'hui un risque environnemental et sanitaire croissant.    
 
