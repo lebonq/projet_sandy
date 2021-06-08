@@ -20,14 +20,8 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
 
-my_plage = Plage(10,10,0.5)
-my_analyse = Analyse().affichage_scan(my_plage,liste_matrix_ref)
-
-plage = [ [0]*my_plage.abs for i in range(my_plage.ord)]
-for y in range(my_plage.ord):
-    for x in range(my_plage.abs):
-        plage[y][x] = my_plage.get_specific_Case(y,x).get_case()
-plage = np.array(plage)
+plage = Plage(10,10,0.5)
+my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
 
 
 # Override de la classe QLabel
@@ -59,7 +53,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
 
-        MainWindow.setWindowIcon(QtGui.QIcon(":/path/to/logoV2.png"))
+        MainWindow.setWindowIcon(QtGui.QIcon(":/img/img/logoV2.png"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -152,23 +146,21 @@ class Ui_MainWindow(object):
     # creation de la plage
     def setBeach(self):
         _translate = QtCore.QCoreApplication.translate
-        for y in range(plage.shape[1]):  # nombre ligne
-            for x in range(plage.shape[0]):  # chaque case de la ligne
+        for y in range(plage.ord):  # nombre ligne
+            for x in range(plage.abs):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
                 self.label = ClickableLabel(self.centralwidget)
                 self.label.setObjectName(label)
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                if (plage[x][y] == 'N'):
+                if (plage.get_specific_Case(x,y).get_spectre().type_plastique == "sable"): # type de plastique 
                     self.label.mousePressEvent = self.spectreSable
                     self.label.setText(_translate("MainWindow", 'N'))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
-                elif (plage[x][y] == 'P'):
+                else: # si c'est du plastique
                     self.label.mousePressEvent = self.spectrePlastique
-                    self.label.setText(_translate("MainWindow", 'P'))
+                    self.label.setText(_translate("MainWindow", plage.get_specific_Case(x,y).get_spectre().type_plastique))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
-                else:
-                    self.label.setText(_translate("MainWindow", 'N/A'))
-                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 255, 255, 0).name()))
+                
 
 
     # initialisation des QWidget

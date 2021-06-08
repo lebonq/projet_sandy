@@ -215,6 +215,13 @@ class Analyse:
         dim = x * y
         print ("--------------------------------")
         print ("La plage contient",'{0:.0%}'.format(count_global/dim),"de plastique.")
+        my_plage.pourcentage = count_global/dim
+        my_plage.PP = count_PP/count_global
+        my_plage.PELD = count_PELD/count_global
+        my_plage.PET = count_PET/count_global
+        my_plage.Polyester = count_Polyester/count_global
+        my_plage.PVC = count_PVC/count_global
+        my_plage.polystyrene = count_polystyrene/count_global
         if(count_global != 0):
             print ("Détails des plastiques détectés : ")
             print ("--------------------------------")
