@@ -51,7 +51,10 @@ class Spectre:
 
     #retoure un type de plastique aléatoire
     def plastique_aleatoire(self):
-        return random.choice(liste_matrix_plastique)
+        if self.plastique==True:
+            return random.choice(liste_matrix_plastique)
+        else:
+            return "sable"
 
     #peut etre appeler pour recreer le spectre selon vos besoins
     def creer_spectre(self):
