@@ -12,7 +12,13 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QPen
 from Analyse import *
 from Plage import *
+from Spectre import *
 import numpy as np
+import matplotlib
+matplotlib.use('Qt5Agg')
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
+from matplotlib.figure import Figure
+
 
 my_plage = Plage(10,10,0.5)
 my_analyse = Analyse().affichage_scan(my_plage,liste_matrix_ref)
@@ -36,6 +42,15 @@ class ClickableLabel(QtWidgets.QLabel):
         if event.button() == QtCore.Qt.LeftButton:  # clic boutton gauche de la souris
             self.clicked.emit()
 
+# Creation de la classe permettant d'afficher les spectres dans Qt
+# Source: https://www.mfitzp.com/plotting-matplotlib/
+class MplCanvas(FigureCanvasQTAgg):
+
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+        super(MplCanvas, self).__init__(fig)
+
 
 class Ui_MainWindow(object):
     
@@ -43,6 +58,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
+
+        MainWindow.setWindowIcon(QtGui.QIcon(":/path/to/logoV2.png"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -120,7 +137,7 @@ class Ui_MainWindow(object):
     def spectrePlastique(self, event):
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
-        self.spectre.setPixmap(QPixmap(':/resource/img/spectre.png')) # affichage de l'image
+        self.spectre.setPixmap(QtGui.QPixmap(":/img/img/spectre.png"))
         self.spectre.show()
 
 
@@ -128,7 +145,7 @@ class Ui_MainWindow(object):
     def spectreSable(self, event):
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
-        self.spectre.setPixmap(QPixmap(':/resource/img/plage.JPG')) # affichage de l'image
+        self.spectre.setPixmap(QtGui.QPixmap(":/img/img/plage.JPG"))
         self.spectre.show()
 
 
