@@ -27,7 +27,7 @@ my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
 # Override de la classe QLabel
 # Source: https://python-forum.io/thread-17718.html
 class ClickableLabel(QtWidgets.QLabel):
-    clicked = QtCore.pyqtSignal()
+    clicked = QtCore.pyqtSignal() 
 
     def __init__(self, parent):
         super().__init__()
