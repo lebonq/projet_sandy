@@ -50,8 +50,8 @@
 <body>
 <h1>Moteur A - Interface de controle</h1>
 <p>
-    Vitesse = <span id="speed_aff">50</span> <span id="run_aff">Arrêt</span> <span id="sens_aff">Avant</span></br></br>
-    <input type="text" size="5" name="vitesse"></br>
+    Le moteur est  <span id="run_aff">Arrêt</span> dans le sens <span id="sens_aff">Avant</span> a une vitesse de <span id="speed_aff">50</span> </br></br>
+    <input type="text" size="5" name="vitesse"></br></br>
     <input type="button" size="5" name="run" value="On/Off" id="run">
     <input type="button" size="5" name="sens" value="Changer de sens" id="sens">
 <p>
