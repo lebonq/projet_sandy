@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
 
-        MainWindow.setWindowIcon(QtGui.QIcon(":/img/img/logoV2.png"))
+        MainWindow.setWindowIcon(QtGui.QIcon(":/img/sandy.ico"))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
     def spectrePlastique(self, event):
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
-        self.spectre.setPixmap(QtGui.QPixmap(":/img/img/spectre.png"))
+        self.spectre.setPixmap(QtGui.QPixmap(":img/spectre.png"))
         self.spectre.show()
 
 
@@ -139,7 +139,7 @@ class Ui_MainWindow(object):
     def spectreSable(self, event):
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
-        self.spectre.setPixmap(QtGui.QPixmap(":/img/img/plage.JPG"))
+        self.spectre.setPixmap(QtGui.QPixmap(":img/plage.jpg"))
         self.spectre.show()
 
 
@@ -152,14 +152,14 @@ class Ui_MainWindow(object):
                 self.label = ClickableLabel(self.centralwidget)
                 self.label.setObjectName(label)
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                if (plage.get_specific_Case(x,y).get_spectre().type_plastique == "sable"): # type de plastique 
+                if (plage.get_specific_Case(x,y).get_spectre().type_plastique == "sable"): # si c'est du sable sur la case
                     self.label.mousePressEvent = self.spectreSable
                     self.label.setText(_translate("MainWindow", 'N'))
-                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 215, 0).name()))
+                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(253, 221, 92).name()))
                 else: # si c'est du plastique
                     self.label.mousePressEvent = self.spectrePlastique
                     self.label.setText(_translate("MainWindow", plage.get_specific_Case(x,y).get_spectre().type_plastique))
-                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(30, 144, 255).name()))
+                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 156, 159).name()))
                 
 
 
@@ -170,7 +170,14 @@ class Ui_MainWindow(object):
         self.descriptionPlastique.setText(_translate("MainWindow","Description"))
         self.Titre.setText(_translate("MainWindow","<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.nomPlage.setText(_translate("MainWindow","Nom de la plage:"))
-        self.pollutionPlage.setText(_translate("MainWindow","Pollution de la plage:"))
+        self.pollutionPlage.setText(_translate("MainWindow","<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
+                                                            "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:11pt;\">Polypropylène (PP): "+str('{0:.0%}'.format(plage.PP))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:11pt;\">Polyéthylène basse densité (PE-LD): "+str('{0:.0%}'.format(plage.PELD))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:11pt;\">Polyéthylène téréphtalate (PET): "+str('{0:.0%}'.format(plage.PET))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:11pt;\">Polyester: "+str('{0:.0%}'.format(plage.Polyester))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:11pt;\">PVC: "+str('{0:.0%}'.format(plage.PVC))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:11pt;\">Polystyrene: "+str('{0:.0%}'.format(plage.polystyrene))+"</span></p></body></html>"))                    
         self.setBeach()
 
 
