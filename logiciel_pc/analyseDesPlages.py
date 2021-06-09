@@ -19,7 +19,6 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
-from PySide2.QtCore import SIGNAL, QObject
 
 
 plage = Plage(10,10,0.5)
@@ -57,6 +56,7 @@ class Ui_MainWindow(object):
         pm_icon = QtGui.QPixmap()
         pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sandy.ico")
         MainWindow.setWindowIcon(QtGui.QIcon(pm_icon))
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -65,6 +65,8 @@ class Ui_MainWindow(object):
         self.descriptionPlastique.setFrameShape(QtWidgets.QFrame.Box)
         self.descriptionPlastique.setObjectName("descriptionPlastique")
         self.gridLayout_2.addWidget(self.descriptionPlastique, 8, 0, 2, 3)
+
+    ####################################################################
         self.Titre = QtWidgets.QLabel(self.centralwidget)
         self.Titre.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -103,8 +105,6 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QtWidgets.QGridLayout()
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.x = 0
-        self.y = 0
 
 #############
         self.horizontalLayout_3.addLayout(self.gridLayout_3)
