@@ -100,6 +100,8 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QtWidgets.QGridLayout()
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
+        self.x = 0
+        self.y = 0
 
 #############
         self.horizontalLayout_3.addLayout(self.gridLayout_3)
@@ -130,21 +132,28 @@ class Ui_MainWindow(object):
 
     # affichage du spectre plastique
     def spectrePlastique(self, event):
+        
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
         #self.spectre.setPixmap(QtGui.QPixmap(":img/spectre.png"))
-        self.spectre.axes.plot([0,1,2,3,4], [10,1,20,3,40])
-        self.spectre.show()
 
+        self.spectre.axes.clear()
+        self.spectre.axes.plot(plage.get_specific_Case(self.x,self.y).spectre.plage_longueur_d_onde, plage.get_specific_Case(self.x,self.y).spectre.reflectance)
+        self.spectre.show()
+        self.spectre.draw()
 
     # affichage du spectre sable
     def spectreSable(self, event):
+        x = event.globalX()
+        y = event.globalY()
+        print("x = " + str(x) + "  y = " + str(y))
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
         #self.spectre.setPixmap(QtGui.QPixmap(":img/plage.jpg"))
-        self.spectre.axes.plot([0,1,2,3,4], [10,1,20,3,40])
+        self.spectre.axes.clear()
+        self.spectre.axes.plot(plage.get_specific_Case(x,y).spectre.plage_longueur_d_onde, plage.get_specific_Case(x,y).spectre.reflectance)
         self.spectre.show()
-
+        self.spectre.draw()
 
     # creation de la plage
     def setBeach(self):
