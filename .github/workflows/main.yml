@@ -5,12 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Self test
-        id: selftest
+      - name: Requirements PC
+        id: reqpc
 
         uses: ryan-rozario/pipreqs-action-cpy@master
 
-        # Put an example of mandatory inputs here
         with:
-          PROJECT_PATH: python   #default is the root of the repository
-          REQUIREMENT_PATH: requirements.txt  #default is requirement.txt in the root of your repository 
+          PROJECT_PATH: logiciel_pc   #default is the root of the repository
+          REQUIREMENT_PATH: logiciel_pc/requirements.txt  #default is requirement.txt in the root of your repository 
+
+      - name: Requirements PI
+        id: reqpi
+
+        uses: ryan-rozario/pipreqs-action-cpy@master
+
+        with:
+          PROJECT_PATH: logiciel_raspberry   #default is the root of the repository
+          REQUIREMENT_PATH: logiciel_raspberry/requirements.txt  #default is requirement.txt in the root of your repository 
