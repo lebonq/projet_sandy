@@ -237,6 +237,8 @@ class Ui_MainWindow(object):
             pm_icon = QtGui.QPixmap() 
             pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle1.jpg") 
             self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Bouteilles d\'eau</span></p><p><span style=\" font-size:10pt;\">- Emballages jetables de tous types et barquettes alimentaires</span></p><p><span style=\" font-size:10pt;\">- Fibres textiles, rembourrage</span></p><p><span style=\" font-size:10pt;\">- Carte de crédit</span></p></body></html>"))
             self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
