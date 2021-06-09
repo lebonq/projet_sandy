@@ -103,13 +103,14 @@ class Ui_MainWindow(object):
 
 #############
         self.horizontalLayout_3.addLayout(self.gridLayout_3)
-        self.spectre = QtWidgets.QLabel(self.centralwidget)
+        # self.spectre = QtWidgets.QLabel(self.centralwidget)
+        self.spectre =  MplCanvas(self, width=5, height=4, dpi=100)
         self.spectre.setEnabled(True)
-        self.spectre.setText("")  # label vide
+        # self.spectre.setText("")  # label vide
         #self.spectre.setPixmap(QtGui.QPixmap(":/resource/img/spectre.png"))  # affichage de l'image à l'ouverture de l'interface
         #self.spectre.setScaledContents(True) # met la taille de l'image a la taille max du QLabel
         #self.spectre.setMaximumSize(QtCore.QSize(350, 350)) # maximise la taille de l'image en 350x350
-        self.spectre.setAlignment(QtCore.Qt.AlignCenter)
+        #self.spectre.setAlignment(QtCore.Qt.AlignCenter)
         self.spectre.setObjectName("spectre")
         self.horizontalLayout_3.addWidget(self.spectre)
 #############
@@ -131,7 +132,8 @@ class Ui_MainWindow(object):
     def spectrePlastique(self, event):
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
-        self.spectre.setPixmap(QtGui.QPixmap(":img/spectre.png"))
+        #self.spectre.setPixmap(QtGui.QPixmap(":img/spectre.png"))
+        self.spectre.axes.plot([0,1,2,3,4], [10,1,20,3,40])
         self.spectre.show()
 
 
@@ -139,7 +141,8 @@ class Ui_MainWindow(object):
     def spectreSable(self, event):
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
-        self.spectre.setPixmap(QtGui.QPixmap(":img/plage.jpg"))
+        #self.spectre.setPixmap(QtGui.QPixmap(":img/plage.jpg"))
+        self.spectre.axes.plot([0,1,2,3,4], [10,1,20,3,40])
         self.spectre.show()
 
 
