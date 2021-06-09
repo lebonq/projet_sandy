@@ -19,6 +19,8 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
+from PySide2.QtCore import SIGNAL, QObject
+
 
 plage = Plage(10,10,0.5)
 my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
@@ -131,25 +133,20 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     # affichage du spectre plastique
-    def spectrePlastique(self, event):
+    def spectrePlastique(self, x,y):
         
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
-        #self.spectre.setPixmap(QtGui.QPixmap(":img/spectre.png"))
-
         self.spectre.axes.clear()
         self.spectre.axes.plot(plage.get_specific_Case(self.x,self.y).spectre.plage_longueur_d_onde, plage.get_specific_Case(self.x,self.y).spectre.reflectance)
         self.spectre.show()
         self.spectre.draw()
 
     # affichage du spectre sable
-    def spectreSable(self, event):
-        x = event.globalX()
-        y = event.globalY()
+    def spectreSable(self, x,y):
         print("x = " + str(x) + "  y = " + str(y))
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
-        #self.spectre.setPixmap(QtGui.QPixmap(":img/plage.jpg"))
         self.spectre.axes.clear()
         self.spectre.axes.plot(plage.get_specific_Case(x,y).spectre.plage_longueur_d_onde, plage.get_specific_Case(x,y).spectre.reflectance)
         self.spectre.show()
@@ -166,16 +163,20 @@ class Ui_MainWindow(object):
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
                 nomElement = plage.get_specific_Case(x,y).typePlastique
                 if (nomElement == "sable"): # si c'est du sable sur la case
-                    self.label.mousePressEvent = self.spectreSable
+                    #self.label.mousePressEvent = self.spectreSable
+                    self.label.clicked.connect(lambda: self.spectreSable(x,y))
                     self.label.setText(_translate("MainWindow", nomElement))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(253, 221, 92).name()))
                 elif (nomElement == "inconnu"): # si l'élement n'est pas reconnu
                     self.label.setText(_translate("MainWindow", nomElement))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 255, 255).name()))
                 else: # si c'est du plastique
-                    self.label.mousePressEvent = self.spectrePlastique
+                    #self.label.mousePressEvent = self.spectrePlastique
+                    self.label.clicked.connect(lambda: self.spectrePlastique(x,y))
                     self.label.setText(_translate("MainWindow", nomElement))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 156, 159).name()))
+        x = 0
+        y = 0
                 
 
 
