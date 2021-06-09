@@ -152,13 +152,17 @@ class Ui_MainWindow(object):
                 self.label = ClickableLabel(self.centralwidget)
                 self.label.setObjectName(label)
                 self.gridLayout_3.addWidget(self.label, y, x, 1, 1)
-                if (plage.get_specific_Case(x,y).get_spectre().type_plastique == "sable"): # si c'est du sable sur la case
+                nomElement = plage.get_specific_Case(x,y).typePlastique
+                if (nomElement == "sable"): # si c'est du sable sur la case
                     self.label.mousePressEvent = self.spectreSable
-                    self.label.setText(_translate("MainWindow", 'N'))
+                    self.label.setText(_translate("MainWindow", nomElement))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(253, 221, 92).name()))
+                elif (nomElement == "inconnu"): # si l'élement n'est pas reconnu
+                    self.label.setText(_translate("MainWindow", nomElement))
+                    self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 255, 255).name()))
                 else: # si c'est du plastique
                     self.label.mousePressEvent = self.spectrePlastique
-                    self.label.setText(_translate("MainWindow", plage.get_specific_Case(x,y).get_spectre().type_plastique))
+                    self.label.setText(_translate("MainWindow", nomElement))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 156, 159).name()))
                 
 
@@ -169,7 +173,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow","Projet Sandy"))
         self.descriptionPlastique.setText(_translate("MainWindow","Description"))
         self.Titre.setText(_translate("MainWindow","<html><head/><body><p><span style=\" color:#00007f;\">Analyse des plages</span></p></body></html>"))
-        self.nomPlage.setText(_translate("MainWindow","Nom de la plage:"))
+        self.nomPlage.setText(_translate("MainWindow","Caractéristique de la plage: "))
         self.pollutionPlage.setText(_translate("MainWindow","<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
                                                             "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:11pt;\">Polypropylène (PP): "+str('{0:.0%}'.format(plage.PP))+"</span></p>"+
