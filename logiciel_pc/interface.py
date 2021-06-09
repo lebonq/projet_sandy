@@ -277,6 +277,7 @@ class Ui_MainWindow(object):
         self.spectre.show()
         self.spectre.draw()
 
+        # affichage de la fiche id en blanc
         self.gridLayout_4.setSpacing(0)
         self.Id_usage.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Id_usage.setStyleSheet("background-color: {};".format(QtGui.QColor(255, 255, 255).name()))
