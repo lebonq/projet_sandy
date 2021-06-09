@@ -6,7 +6,6 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import resource_rc
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QPen
@@ -14,6 +13,7 @@ from Analyse import *
 from Plage import *
 from Spectre import *
 import numpy as np
+import os
 import matplotlib
 matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
@@ -54,7 +54,9 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
 
-        MainWindow.setWindowIcon(QtGui.QIcon(":/img/sandy.ico"))
+        pm_icon = QtGui.QPixmap()
+        pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sandy.ico")
+        MainWindow.setWindowIcon(QtGui.QIcon(pm_icon))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
@@ -146,6 +148,10 @@ class Ui_MainWindow(object):
         print("x = " + str(x) + "  y = " + str(y))
         _translate = QtCore.QCoreApplication.translate
         self.descriptionPlastique.setText(_translate("MainWindow","C'est du sable :)"))
+        pm_icon = QtGui.QPixmap() #A supprimer ici on affiche une image dans un label tu connais et plus jamais on stocke en hexa les images dans un fichier text 
+        #PLUS JAMAIS
+        pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sandy.ico")
+        self.descriptionPlastique.setPixmap(pm_icon)
         self.spectre.axes.clear()
         self.spectre.axes.plot(plage.get_specific_Case(x,y).spectre.plage_longueur_d_onde, plage.get_specific_Case(x,y).spectre.reflectance)
         self.spectre.show()
