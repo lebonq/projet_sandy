@@ -430,6 +430,7 @@ class Ui_MainWindow(object):
             for x in range(plage.abs):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
                 self.label = ClickableLabel(self.centralwidget)
+                # self.label.setMaximumSize(15,4) # taille maximum du label largeur*hauteur
                 self.label.setObjectName(label)
                 self.gridLayout.addWidget(self.label, y, x, 1, 1)
                 nomElement = plage.get_specific_Case(x,y).typePlastique
