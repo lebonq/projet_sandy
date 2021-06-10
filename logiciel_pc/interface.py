@@ -235,7 +235,7 @@ class Ui_MainWindow(object):
         if (nomElement == "orange_pp"):
             # affichage de l'image
             pm_icon = QtGui.QPixmap() 
-            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle1.jpg") 
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle5.jpg") 
             self.imgPlastique.setPixmap(pm_icon)
 
             # affichage de la fiche id
@@ -250,18 +250,120 @@ class Ui_MainWindow(object):
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
 
+
         elif (nomElement == "white_peld"):
-            None
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap() 
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle4.jpg") 
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Sac de congélation, sac poubelle</span></p><p><span style=\" font-size:10pt;\">- Films alimentaires et barquettes</span></p><p><span style=\" font-size:10pt;\">- Flacons cosmétiques</span></p></body></html>"))
+            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PEBD</span></p></body></html>"))
+            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène basse densité</span></p></body></html>"))
+            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span></p><p align=\"justify\"><span style=\" font-size:10pt;\">D\'après le RSE, Raiseau Santé Environnement (France)</span></p></body></html>"))
+
+
         elif (nomElement == "blue_pp"):
-            None
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap() 
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle5.jpg") 
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Boîtes de conservation (type tupperwar)</span></p><p><span style=\" font-size:10pt;\">- Pots de yaourts, margarines</span></p><p><span style=\" font-size:10pt;\">- Planches à découper en plastique</span></p><p><span style=\" font-size:10pt;\">- Pare-chocs, tableaux de bord de voitures</span></p></body></html>"))
+            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PP</span></p></body></html>"))
+            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polypropylène</span></p></body></html>"))
+            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span></p><p align=\"justify\"><span style=\" font-size:10pt;\">D\'après le RSE, Raiseau Santé Environnement (France)</span></p></body></html>"))
+
+
         elif (nomElement == "bottle"):
-            None
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap() 
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle1.jpg")
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Sous l\'effet du temps et de la chaleur, ce type de plastique est ammené à générer de l\'antimoine, un métal cancérigène qui passe de l\'emballage au contenu.</span></p></body></html>"))
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Bouteilles d\'eau</span></p><p><span style=\" font-size:10pt;\">- Emballages jetables de tous types et barquettes alimentaires</span></p><p><span style=\" font-size:10pt;\">- Fibres textiles, rembourrage</span></p><p><span style=\" font-size:10pt;\">- Carte de crédit</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PET</span></p></body></html>"))
+            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène téréphtalate</span></p></body></html>"))
+
+
         elif (nomElement == "white_polyester"):
-            None
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap() 
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle1.jpg") 
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Sous l\'effet du temps et de la chaleur, ce type de plastique est ammené à générer de l\'antimoine, un métal cancérigène qui passe de l\'emballage au contenu.</span></p></body></html>"))
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Bouteilles d\'eau</span></p><p><span style=\" font-size:10pt;\">- Emballages jetables de tous types et barquettes alimentaires</span></p><p><span style=\" font-size:10pt;\">- Fibres textiles, rembourrage</span></p><p><span style=\" font-size:10pt;\">- Carte de crédit</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PET</span></p></body></html>"))
+            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène téréphtalate</span></p></body></html>"))
+
+
         elif (nomElement == "pvc"):
-            None
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap() 
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle3.jpg") 
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Jouets pour enfants</span></p><p><span style=\" font-size:10pt;\">- Tuyeaux de canalisation</span></p><p><span style=\" font-size:10pt;\">- Sols plastiques, revêtements mureaux</span></p></body></html>"))
+            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PVC</span></p></body></html>"))
+            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polychlorure de vinyle</span></p></body></html>"))
+            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Chauffé, le plastique PVC génère des phtalates pouvent migrer vers d\'autres surfaces. Le PVC est également supecté de contribuer aux pluies acides et de rejeter des dioxines (molécules persistantes et toxiques).</span></p></body></html>"))
+
+
         elif (nomElement == "polystyrene"):
-            None
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap()  
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle6.jpg") 
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Barquettes de viandes, de poissons</span></p><p><span style=\" font-size:10pt;\">- Couverts en plastiques </span></p><p><span style=\" font-size:10pt;\">- Isolants thermiques (cloisons, planchers)</span></p><p><span style=\" font-size:10pt;\">- Flotteurs et planches à voiles</span></p></body></html>"))
+            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PS</span></p></body></html>"))
+            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polystyrène</span></p></body></html>"))
+            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avéréé </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p align=\"justify\"><span style=\" font-size:10pt;\">Exposé à la chaleur le polystyrène risque de dégager du styrène qui pourrait être cancérigène selon le CIRC (Centre International de la Recherche sur le Cancer).</span></p></body></html>"))
+
 
 
     # affichage du spectre sable
