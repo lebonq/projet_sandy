@@ -199,6 +199,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.Titre.sizePolicy().hasHeightForWidth())
         self.Titre.setSizePolicy(sizePolicy)
         self.Titre.setMinimumSize(QtCore.QSize(0, 100)) # taille minimum du QLabel du titre largeur*hauteur
+        self.Titre.setMinimumSize(QtCore.QSize(16777215, 100))
         self.Titre.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setPointSize(26)
