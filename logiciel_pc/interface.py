@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
-        MainWindow.showMaximized()
+        MainWindow.showFullScreen()
 
         # icon de la fenetre
         pm_icon = QtGui.QPixmap()
@@ -183,6 +183,14 @@ class Ui_MainWindow(object):
 
         # layout titre
         self.gridLayout_2.addLayout(self.horizontalLayout_2, 1, 0, 1, 2)
+
+        # boutton quitter
+        self.quitter = QtWidgets.QPushButton(self.centralwidget)
+        self.quitter.setMaximumSize(QtCore.QSize(100, 16777215))
+        self.quitter.setObjectName("quitter")
+        self.gridLayout_2.addWidget(self.quitter, 7, 1, 1, 1)
+
+        # titre
         self.Titre = QtWidgets.QLabel(self.centralwidget)
         self.Titre.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -471,6 +479,9 @@ class Ui_MainWindow(object):
                                                             "<p align=\"center\"><span style=\" font-size:11pt;\">Polystyrene: "+str('{0:.0%}'.format(plage.polystyrene))+"</span></p></body></html>"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.setBeach() # creation des QLabel pour dessiner la plage
+
+        self.quitter.setText(_translate("MainWindow", "Quitter")) # texte sur le bouton
+        self.quitter.clicked.connect(app.quit)
     
 
 if __name__ == "__main__":
