@@ -49,8 +49,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
-        MainWindow.showMaximized()
-        #MainWindow.showFullScreen()
+        #MainWindow.showMaximized()
+        MainWindow.showFullScreen()
 
         # icon de la fenetre
         pm_icon = QtGui.QPixmap()
