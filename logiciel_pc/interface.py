@@ -225,15 +225,19 @@ class Ui_MainWindow(object):
         self.caract_Photo = QtWidgets.QLabel(self.centralwidget)
         self.caract_Photo.setObjectName("caract_Photo")
         self.verticalLayout.addWidget(self.caract_Photo)
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.photo1 = QtWidgets.QLabel(self.centralwidget)
         self.photo1.setObjectName("photo1")
-        self.verticalLayout.addWidget(self.photo1)
+        self.horizontalLayout_4.addWidget(self.photo1)
         self.photo2 = QtWidgets.QLabel(self.centralwidget)
         self.photo2.setObjectName("photo2")
-        self.verticalLayout.addWidget(self.photo2)
+        self.horizontalLayout_4.addWidget(self.photo2)
         self.photo3 = QtWidgets.QLabel(self.centralwidget)
         self.photo3.setObjectName("photo3")
-        self.verticalLayout.addWidget(self.photo3)
+        self.horizontalLayout_4.addWidget(self.photo3)
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
+        self.horizontalLayout_2.addLayout(self.verticalLayout)
 
         # pollution plage
         self.horizontalLayout_2.addLayout(self.verticalLayout)
@@ -544,15 +548,15 @@ class Ui_MainWindow(object):
 
         # affichage de l'image
         pm_photo1 = QtGui.QPixmap() 
-        pm_photo1.load(os.path.dirname(os.path.abspath(__file__)) + "/img/baieSomme1.jpg") 
+        pm_photo1.load(os.path.dirname(os.path.abspath(__file__)) + "/img/baieSomme1x.jpg") 
         self.photo1.setPixmap(pm_photo1)
 
         pm_photo2 = QtGui.QPixmap() 
-        pm_photo2.load(os.path.dirname(os.path.abspath(__file__)) + "/img/baieSomme2.jpg") 
+        pm_photo2.load(os.path.dirname(os.path.abspath(__file__)) + "/img/baieSomme2x.jpg") 
         self.photo2.setPixmap(pm_photo2)
 
         pm_photo3 = QtGui.QPixmap() 
-        pm_photo3.load(os.path.dirname(os.path.abspath(__file__)) + "/img/phoque.png") 
+        pm_photo3.load(os.path.dirname(os.path.abspath(__file__)) + "/img/phoquex.png") 
         self.photo3.setPixmap(pm_photo3)
 
         # affichage du détail de la pollution de la plage
