@@ -21,7 +21,7 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
-plage = Plage(80,80,0.5)
+plage = Plage(10,10,0.5)
 my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
 
 # Override de la classe QLabel
@@ -495,11 +495,11 @@ class Ui_MainWindow(object):
             for x in range(plage.abs):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
                 self.label = ClickableLabel(self.centralwidget)
-                self.label.setMaximumSize(20,4) # taille maximum du label largeur*hauteur
+                # self.label.setMaximumSize(20,4) # taille maximum du label largeur*hauteur
                 self.label.setObjectName(label)
                 self.gridLayout.addWidget(self.label, y, x, 1, 1)
                 nomElement = plage.get_specific_Case(x,y).typePlastique
-                # self.label.setText(_translate("MainWindow", nomElement))
+                self.label.setText(_translate("MainWindow", nomElement))
                 if (nomElement == "sable"): # si c'est du sable sur la case
                     self.label.clicked.connect(lambda  x=x, y=y, nom = nomElement: self.spectreNonPlastique(x,y,nom))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(253, 221, 92).name()))
