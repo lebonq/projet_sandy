@@ -21,7 +21,7 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
-plage = Plage(10,10,0.5)
+plage = Plage(80,80,0.5)
 my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
 
 # Override de la classe QLabel
@@ -431,7 +431,7 @@ class Ui_MainWindow(object):
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polystyrène</span></p></body></html>"))
             self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
-            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avéréé </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p align=\"justify\"><span style=\" font-size:10pt;\">Exposé à la chaleur le polystyrène risque de dégager du styrène qui pourrait être cancérigène selon le CIRC (Centre International de la Recherche sur le Cancer).</span></p></body></html>"))
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avéréé </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p align=\"justify\"><span style=\" font-size:10pt;\">Exposé à la chaleur, le polystyrène risque de dégager du styrène qui pourrait être cancérigène selon le CIRC (Centre International de la Recherche sur le Cancer).</span></p></body></html>"))
         
 
     # affichage du spectre d'element inconnu du logiciel
@@ -495,11 +495,11 @@ class Ui_MainWindow(object):
             for x in range(plage.abs):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
                 self.label = ClickableLabel(self.centralwidget)
-                # self.label.setMaximumSize(15,4) # taille maximum du label largeur*hauteur
+                self.label.setMaximumSize(20,4) # taille maximum du label largeur*hauteur
                 self.label.setObjectName(label)
                 self.gridLayout.addWidget(self.label, y, x, 1, 1)
                 nomElement = plage.get_specific_Case(x,y).typePlastique
-                self.label.setText(_translate("MainWindow", nomElement))
+                # self.label.setText(_translate("MainWindow", nomElement))
                 if (nomElement == "sable"): # si c'est du sable sur la case
                     self.label.clicked.connect(lambda  x=x, y=y, nom = nomElement: self.spectreNonPlastique(x,y,nom))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(253, 221, 92).name()))
