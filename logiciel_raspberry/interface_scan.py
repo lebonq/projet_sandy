@@ -20,6 +20,8 @@ def change_speed():
 def change_speed():
   return json.dumps({'pins_warning': my_scanner.warning_pin})
 
+#TODO Deplacement du support
+
 @route('/_run_again')
 def run_again():
   if(my_scanner.need_user_input == True):

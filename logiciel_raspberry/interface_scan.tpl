@@ -30,7 +30,7 @@
 <main>
 </main>
 <p>
-    <input type="button" size="5" name="next" value="Suivant" id="next">
+    <input type="button" size="5" name="next" value="Suivant" id="next"> //FIXME Ne fonctionne pas :(
 <p>
 </body>
 </html>

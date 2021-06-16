@@ -20,7 +20,6 @@ class Scanner ():
         self.x_aff_support = 0
         self.x_aff_support = 0
 
-        self.message_aff = ""
         self.warning_pin = False
 
         self.need_user_input = True

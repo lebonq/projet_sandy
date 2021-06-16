@@ -63,7 +63,7 @@ function draw() {
     fill(color(50,50,50));//bleu nuit
     rect(10,x,380,10);//la barre
 
-    fill(color(0,0,0));
+    fill(color(0,0,0));//TODO Deplacemetn du support
     rect(20,0,10,10,10);//le support
 
     //On affiche les alertes

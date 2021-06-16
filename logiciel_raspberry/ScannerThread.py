@@ -18,7 +18,7 @@ class ScannerThread (threading.Thread):
         else:
             self.scanner_obj.moteur_a.sens(True)
 
-        while(GPIO.input(int(17+current_pin_offset)) == GPIO.LOW):
+        while(GPIO.input(int(17+current_pin_offset)) == GPIO.LOW): #TODO Augmenter avec un timestamps les coordonées tu connais 4mins 50 pas ouf mais tu connais
             if(GPIO.input(27-current_pin_offset) == GPIO.HIGH):
                 self.scanner_obj.warning_pin = True
             else:
@@ -30,9 +30,4 @@ class ScannerThread (threading.Thread):
 
         if(self.scanner_obj.allere_retour_done == self.scanner_obj.nb_aller_retour):#en fois tout les aller retours fait on remte a 0
             self.scanner_obj.allere_retour_done = 0
-            
-            
-            
-
-            
-            
+        
