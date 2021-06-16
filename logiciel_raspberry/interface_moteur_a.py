@@ -1,8 +1,12 @@
 from Moteur import Moteur
-from bottle import run, route, debug, template, request
+from bottle import run, route, debug, template, request, static_file
 import json
 
 moteur_a = Moteur()
+
+@route('/static/<filename>')
+def server_static(filename):
+  return static_file(filename, root='ressources')
 
 @route('/_change_speed')
 def change_speed():

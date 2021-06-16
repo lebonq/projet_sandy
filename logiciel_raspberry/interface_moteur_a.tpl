@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
 <title>Moteur A</title>
-<link rel="icon"  href="favicon.ico"/>
+<link rel="icon"  href="static/favicon.ico"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"> 
     var $SCRIPT_ROOT = "{{ request.script_name }}";

@@ -1,5 +1,4 @@
-import RPi.GPIO as GPIO          
-from time import sleep
+import RPi.GPIO as GPIO
 
 class Moteur: 
 
@@ -19,6 +18,7 @@ class Moteur:
         self.ena = 25
 
         #Setup des pins
+        GPIO.setwarnings(False) # Ignore warning for now
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.in1,GPIO.OUT)
         GPIO.setup(self.in2,GPIO.OUT)
