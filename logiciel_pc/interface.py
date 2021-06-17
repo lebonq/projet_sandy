@@ -570,10 +570,10 @@ class Ui_MainWindow(object):
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Polystyrene: "+str('{0:.0%}'.format(plage.polystyrene))+"</span></p></body></html>"))"""
         self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
                                                             "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">BOTTLE (bouteille plastique): "+str('{0:.0%}'.format(plage.BOTTLE))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">INK (cartouche d'encre): "+str('{0:.0%}'.format(plage.INK))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">PLA (plastique d'imprimante 3D): "+str('{0:.0%}'.format(plage.PLA))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">PLASt_BAG (sac plastique): "+str('{0:.0%}'.format(plage.PLAST_BAG))+"</span></p></body></html>"))
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Bottle (bouteille de plastique): "+str('{0:.0%}'.format(plage.BOTTLE))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Cartouche d'encre (plastique inconnu): "+str('{0:.0%}'.format(plage.INK))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Plastique d'imprimante 3D (PLA): "+str('{0:.0%}'.format(plage.PLA))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Sac plastique (polyester): "+str('{0:.0%}'.format(plage.PLAST_BAG))+"</span></p></body></html>"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.setBeach() # creation des QLabel pour dessiner la plage
 
