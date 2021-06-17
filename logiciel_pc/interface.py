@@ -560,14 +560,20 @@ class Ui_MainWindow(object):
         self.photo3.setPixmap(pm_photo3)
 
         # affichage du détail de la pollution de la plage
-        self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
+        """self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
                                                             "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Polypropylène (PP): "+str('{0:.0%}'.format(plage.PP))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène basse densité (PE-LD): "+str('{0:.0%}'.format(plage.PELD))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène téréphtalate (PET): "+str('{0:.0%}'.format(plage.PET))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Polyester: "+str('{0:.0%}'.format(plage.Polyester))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">PVC: "+str('{0:.0%}'.format(plage.PVC))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polystyrene: "+str('{0:.0%}'.format(plage.polystyrene))+"</span></p></body></html>"))
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polystyrene: "+str('{0:.0%}'.format(plage.polystyrene))+"</span></p></body></html>"))"""
+        self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
+                                                            "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">BOTTLE (bouteille plastique): "+str('{0:.0%}'.format(plage.BOTTLE))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">INK (cartouche d'encre): "+str('{0:.0%}'.format(plage.INK))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">PLA (plastique d'imprimante 3D): "+str('{0:.0%}'.format(plage.PLA))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">PLASt_BAG (sac plastique): "+str('{0:.0%}'.format(plage.PLAST_BAG))+"</span></p></body></html>"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.setBeach() # creation des QLabel pour dessiner la plage
 

@@ -10,12 +10,10 @@ class Plage:
         self.ord = ord
         self.pourcentage = 0 # pourcentage de la pollution totale de la plage
         # en pourcentage
-        self.PP = 0
-        self.PELD = 0
-        self.PET = 0
-        self.Polyester = 0
-        self.PVC = 0
-        self.polystyrene = 0
+        self.BOTTLE = 0
+        self.INK = 0
+        self.PLA = 0
+        self.PLAST_BAG = 0
         self.grille = self.set_grille(proba)
     
     # definit la grille, cette fonction est appelée dans le constructeur et n'est censée servir qu'une fois

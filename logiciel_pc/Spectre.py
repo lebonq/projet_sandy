@@ -3,8 +3,11 @@ import matplotlib.pyplot as plt
 import random
 
 #Liste de string possible pour le spectre
-liste_matrix_ref = ["orange_pp","white_peld","blue_pp","bottle","white_polyester","pvc","polystyrene","sable"]
-liste_matrix_plastique = ["orange_pp","white_peld","blue_pp","bottle","white_polyester","pvc","polystyrene"]
+#liste_matrix_ref = ["orange_pp","white_peld","blue_pp","bottle","white_polyester","pvc","polystyrene","sable"]
+liste_matrix_ref = ["bottle", "ink", "pla", "plastic_bag", "sable"]
+
+#liste_matrix_plastique = ["orange_pp","white_peld","blue_pp","bottle","white_polyester","pvc","polystyrene"]
+liste_matrix_plastique = ["bottle", "ink", "pla", "plastic_bag"]
 
 # ORANGE PP ROPE UNROLLED
 #liste_data_orange_pp = [0.07,0.06,0.07,0.08,0.1,0.12,0.13,0.1,0.15,0.4,0.54,0.58,0.6,0.6,0.6,0.6,0.6,0.58,0.6,0.61,0.61,0.6,0.6,0.6,0.58,0.55,0.56,0.6,0.64,0.62,0.6,0.58,0.62,0.63,0.63,0.64,0.62,0.6,0.5,0.45,0.4,0.42,0.5,0.55,0.59,0.6,0.6,0.58,0.5,0.42,0.4,0.43,0.47,0.5,0.51,0.53,0.56,0.59,0.59,0.57,0.56,0.51,0.5,0.5,0.4,0.25,0.27,0.24,0.3,0.33,0.33,0.33,0.35,0.39,0.39,0.39,0.4,0.4,0.39,0.38,0.5,0.52,0.53,0.53,0.53,0.54,0.55,0.55,0.52,0.5,0.48,0.47,0.44,0.22,0.15,0.17,0.1,0.15,0.12,0.13,0.13]
@@ -46,8 +49,8 @@ class Spectre:
 
     def __init__(self, plastique,resolution,petit_bruit,grand_bruit):
         self.plastique = plastique #boolean permet de savoir si le spectre est plastique ou non
-        self.borne_inf = 400 #Int
-        self.borne_sup = 2420 #Int
+        self.borne_inf = -80 #Int
+        self.borne_sup = 1968 #Int
         self.resolution = resolution #resolution de la courbe
         self.petit_bruit = petit_bruit # une valeur float comme par exemple 0.0005
         self.type_plastique = self.plastique_aleatoire() #string avec le nom du plastique (cf)
@@ -72,6 +75,7 @@ class Spectre:
         liste_data = []
 
         if(self.plastique == True):
+            """
             if(self.type_plastique == "orange_pp"):
                 liste_data = liste_data_orange_pp
             elif(self.type_plastique == "white_peld"):
@@ -85,7 +89,16 @@ class Spectre:
             elif(self.type_plastique == "pvc"):
                 liste_data = liste_data_pvc
             elif(self.type_plastique == "polystyrene"):
-                liste_data = liste_data_polystyrene
+                liste_data = liste_data_polystyrene"""
+
+            if(self.type_plastique == "bottle"):
+                liste_data = liste_data_bottle
+            elif(self.type_plastique == "ink"):
+                liste_data = liste_data_ink
+            elif(self.type_plastique == "pla"):
+                liste_data = liste_data_pla
+            elif(self.type_plastique == "plastic_bag"):
+                liste_data = liste_data_plastic_bag
             else:
                 print("Erreur type plastique")
                 print(self.type_plastique)
@@ -101,23 +114,23 @@ class Spectre:
 
         list_wavelength = []   
 
-        list_wavelength.append([400.0,420.0])
-        for i in range (1,101):
-            list_wavelength.append([list_wavelength[i-1][1],list_wavelength[i-1][1]+20.0])
+        list_wavelength.append([-80.0,-76.0])
+        for i in range (1,512):
+            list_wavelength.append([list_wavelength[i-1][1],list_wavelength[i-1][1]+4.0])
 
-        data1 = np.zeros(101)
-        data2 = np.zeros(101)
+        data1 = np.zeros(512)
+        data2 = np.zeros(512)
 
-        for i in range (101):
+        for i in range (512):
             data1[i] = liste_data[i]
 
-        for i in range (100):
+        for i in range (511):
             data2[i] = liste_data[i+1]
 
-        data2[100] = data1[100]
+        data2[511] = data1[511]
 
-        data1 = np.reshape(data1,(101,1))
-        data2 = np.reshape(data2,(101,1))
+        data1 = np.reshape(data1,(512,1))
+        data2 = np.reshape(data2,(512,1))
         matrix_data = np.append(data1,data2,axis=1)
 
         longeur_donde_spectre_type = list_wavelength
