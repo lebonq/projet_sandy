@@ -78,7 +78,7 @@ class Case:
 
     # definit le Spectre de la Case en appelant le constructeur de la classe Spectre
     def set_spectre(self):
-        spectre = Spectre(self.estPlastique,0.2,0.0005,1)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
+        spectre = Spectre(self.estPlastique,0.2,2,1)   # si self.isPlastic vaut True, le constructeur de Spectre devra créer un objet Spectre contenant du plastique, sinon, un objet Spectre ne contenant pas de plastique
         return spectre                      # à voir avec Quentin si cela lui va
 
     def get_spectre(self):
