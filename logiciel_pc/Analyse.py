@@ -214,8 +214,10 @@ class Analyse:
         x = my_plage.get_dim_plage()[0]
         y = my_plage.get_dim_plage()[1]
 
+        erreur_detec = 100
+
         for i in range(len(liste_erreur)):
-            if (liste_erreur[i][0] > 7):
+            if (liste_erreur[i][0] > erreur_detec):
                 print("Erreur quadratique moyenne minimale : ", liste_erreur[i][0])
                 print("  => Conclusion sur la nature de l'objet : matériau non référencé dans la base de donnée")
                 my_plage.get_specific_Case(liste_erreur[i][2],liste_erreur[i][3]).typePlastique = "inconnu"
@@ -225,18 +227,18 @@ class Analyse:
                 print("  => Conclusion sur la nature de l'objet : ", liste_matrix_ref[liste_erreur[i][1]])  
                 my_plage.get_specific_Case(liste_erreur[i][2],liste_erreur[i][3]).typePlastique = liste_matrix_ref[liste_erreur[i][1]]
                 print("  => Localisation : ",liste_erreur[i][2],liste_erreur[i][3])
-            
-            if(liste_erreur[i][1] <=  3 and liste_erreur[i][0] < 7):
+                        
+            if(liste_erreur[i][1] <=  3 and liste_erreur[i][0] < erreur_detec):
                 count_global += 1
-            if(liste_erreur[i][1] == 0 and liste_erreur[i][0] < 7):
+            if(liste_erreur[i][1] == 0 and liste_erreur[i][0] < erreur_detec):
                 count_bottle += 1
-            if(liste_erreur[i][1] == 1 and liste_erreur[i][0] < 7):
+            if(liste_erreur[i][1] == 1 and liste_erreur[i][0] < erreur_detec):
                 count_ink += 1
-            if(liste_erreur[i][1] == 2 and liste_erreur[i][0] < 7):
+            if(liste_erreur[i][1] == 2 and liste_erreur[i][0] < erreur_detec):
                 count_pla += 1
-            if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < 7):
+            if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < erreur_detec):
                 count_plast_bag += 1
-            if(liste_erreur[i][1] == 4 and liste_erreur[i][0] < 7):
+            if(liste_erreur[i][1] == 4 and liste_erreur[i][0] < erreur_detec):
                 count_sable += 1
             """
             if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < 0.009):
