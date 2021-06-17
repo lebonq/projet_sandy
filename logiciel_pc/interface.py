@@ -141,6 +141,20 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.Id_paplChamp, 5, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_4)
 
+        # pour que le texte soit à la taille du label
+        self.Id_usage.setWordWrap(True)
+        self.Id_papl.setWordWrap(True)
+        self.Id_abreviation.setWordWrap(True)
+        self.Id_nvDangerosite.setWordWrap(True)
+        self.Id_nomChamp.setWordWrap(True)
+        self.Id_nom.setWordWrap(True)
+        self.Id_variable.setWordWrap(True)
+        self.Id_titre.setWordWrap(True)
+        self.Id_abreviationChamp.setWordWrap(True)
+        self.Id_usageChamp.setWordWrap(True)
+        self.Id_nvDangerositeChamp.setWordWrap(True)
+        self.Id_paplChamp.setWordWrap(True)
+
         # label contenant l'image du niveau du plastique (à droite de la fiche ID)
         self.imgPlastique = QtWidgets.QLabel(self.centralwidget)
         self.imgPlastique.setMaximumSize(QtCore.QSize(226, 16777215))
@@ -323,7 +337,7 @@ class Ui_MainWindow(object):
         self.imgPlastique.setFrameShape(QtWidgets.QFrame.Box)
 
         self.Id_titre.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Identité du plastique détecté</span></p></body></html>"))
-        self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études. </span></p></body></html>"))
+        self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études.</span></p></body></html>"))
 
         if (nomElement == "white_peld"):
             # affichage de l'image
