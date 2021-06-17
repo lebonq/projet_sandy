@@ -8,17 +8,19 @@ class Scanner ():
     def __init__(self):
         self.moteur_a = Moteur()
 
+        self.moteur_a.vitesse(100)
+
         self.nb_aller_retour = 6 #Nombre d'aller retour
         self.allere_retour_done = 0
 
         #On a donc un tableau de donnée de n_x * n_y spectres
 
         #Toute ces variables sont relatives a l'affichage sur l'interface web
-        self.x_aff_barre = 0
+        self.x_aff_barre = 15
         self.y_aff_barre = 10
 
         self.x_aff_support = 0
-        self.x_aff_support = 0
+        self.y_aff_support = 20
 
         self.warning_pin = False
 

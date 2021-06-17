@@ -1,4 +1,5 @@
 var x = 0;
+var y = 0;
 var input_user = true;
 var pins_warning = false;
 
@@ -6,6 +7,7 @@ function get_pos() {
       $.getJSON($SCRIPT_ROOT + '_get_position', {
       }, function(data) {
         x = data.x;
+        y = data.y;
       });
       return false;
 }
@@ -40,7 +42,7 @@ function get_pin() {
 
 function setup() {
     createCanvas(400, 400);
-    frameRate(1);
+    frameRate(3);
 }
 function draw() {    
     get_pos();
@@ -60,12 +62,13 @@ function draw() {
     rect(10,385,10,10);
     rect(380,385,10,10);
     
-    fill(color(50,50,50));//bleu nuit
+    fill(color(100,100,100));//bleu nuit
     rect(10,x,380,10);//la barre
 
-    fill(color(0,0,0));//TODO Deplacemetn du support
-    rect(20,0,10,10,10);//le support
+    fill(color(0,0,0));
+    rect(y,x-5,20,20,10);//le support
 
+    fill(color(255,0,0)) //texte en rouge
     //On affiche les alertes
     if(input_user){
       textSize(32);

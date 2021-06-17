@@ -11,13 +11,14 @@
     var submit_next = function(e) {
       $.getJSON($SCRIPT_ROOT + '_run_again', {
       }, function(data) {
+
       });
       return false;
     };
 
     $('#next').bind('click', submit_next);
+    //document.getElementById("next").addEventListener("click", submit_next);
 
-    });
   });
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
@@ -30,7 +31,7 @@
 <main>
 </main>
 <p>
-    <input type="button" size="5" name="next" value="Suivant" id="next"> //FIXME Ne fonctionne pas :(
+    <input type="button" size="5" name="next" value="Suivant" id="next">
 <p>
 </body>
 </html>
