@@ -1,7 +1,7 @@
 from Plage import Plage       #import de la classe Plage
 from Analyse import *
 
-my_plage = Plage(5,5,0.2)     #les parametres correspondent à : longeur(x), largeur(y), probabilité d'avoir du plastique.
+my_plage = Plage(7,7,0.2)     #les parametres correspondent à : longeur(x), largeur(y), probabilité d'avoir du plastique.
 my_plage.print_plage()
 
 my_analyse = Analyse()

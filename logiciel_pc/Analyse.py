@@ -9,28 +9,20 @@ class Analyse:
         self.list_wavelength = self.creation_list_wavelength()
         # CREATION DES MATRICE REFLECTANCE REFERENCE + LONGUEUR D'ONDE POUR LA COMPARAISON
         self.list_wavelength = np.reshape(self.list_wavelength,(512,1))
-        #self.liste_data_blue_pp = np.reshape(liste_data_blue_pp,(101,1))
-        self.liste_data_bottle = np.reshape(liste_data_bottle,(512,1))
-        """self.liste_data_orange_pp = np.reshape(liste_data_orange_pp,(101,1))
-        self.liste_data_white_polyester = np.reshape(liste_data_white_polyester,(101,1))
-        self.liste_data_white_peld = np.reshape(liste_data_white_peld,(101,1))
-        self.liste_data_pvc = np.reshape(liste_data_pvc,(101,1))
-        self.list_data_polystyrene = np.reshape(liste_data_polystyrene,(101,1))"""
-        self.liste_data_ink = np.reshape(liste_data_ink,(512,1))
+        self.liste_data_pet = np.reshape(liste_data_pet,(512,1))
+        self.liste_data_pvc = np.reshape(liste_data_pvc,(512,1))
+        self.liste_data_inkCartridge = np.reshape(liste_data_inkCartridge,(512,1))
         self.liste_data_pla = np.reshape(liste_data_pla,(512,1))
-        self.liste_data_plastic_bag = np.reshape(liste_data_plastic_bag,(512,1))
+        self.liste_data_peld = np.reshape(liste_data_peld,(512,1))
+        self.liste_data_pp = np.reshape(liste_data_pp,(512,1))
         self.liste_data_sable = np.reshape(liste_data_sable,(512,1))
         
-        #self.matrix_ref_blue_pp = np.append(self.list_wavelength,self.liste_data_blue_pp,axis=1)
-        self.matrix_ref_bottle = np.append(self.list_wavelength,self.liste_data_bottle,axis=1)
-        """self.matrix_ref_orange_pp = np.append(self.list_wavelength,self.liste_data_orange_pp,axis=1)
-        self.matrix_ref_white_polyester = np.append(self.list_wavelength,self.liste_data_white_polyester,axis=1)
-        self.matrix_ref_white_peld = np.append(self.list_wavelength,self.liste_data_white_peld,axis=1) 
+        self.matrix_ref_pet = np.append(self.list_wavelength,self.liste_data_pet,axis=1)
         self.matrix_ref_pvc = np.append(self.list_wavelength,self.liste_data_pvc,axis=1)
-        self.matrix_ref_polystyrene = np.append(self.list_wavelength,self.list_data_polystyrene,axis = 1)"""
-        self.matrix_ref_ink = np.append(self.list_wavelength, self.liste_data_ink, axis=1)
+        self.matrix_ref_inkCartridge = np.append(self.list_wavelength, self.liste_data_inkCartridge, axis=1)
         self.matrix_ref_pla = np.append(self.list_wavelength, self.liste_data_pla, axis=1)
-        self.matrix_ref_plastic_bag = np.append(self.list_wavelength, self.liste_data_plastic_bag, axis=1)
+        self.matrix_ref_peld = np.append(self.list_wavelength, self.liste_data_peld, axis=1)
+        self.matrix_ref_pp = np.append(self.list_wavelength, self.liste_data_pp, axis=1)
         self.matrix_ref_sable = np.append(self.list_wavelength,self.liste_data_sable,axis=1)
 
 
@@ -130,48 +122,28 @@ class Analyse:
         """
 
         erreur = []
-        for i in range(len(liste_matrix_ref)):
-            """
+        for i in range(len(liste_matrix_ref)):            
             if (i == 0):
-                matrix_ref = self.matrix_ref_orange_pp
+                matrix_ref = self.matrix_ref_pet
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i == 1):
-                matrix_ref = self.matrix_ref_white_peld
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif (i == 2):
-                matrix_ref = self.matrix_ref_blue_pp
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif (i == 3):
-                matrix_ref = self.matrix_ref_bottle
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif (i == 4):
-                matrix_ref = self.matrix_ref_white_polyester
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif(i == 5):
                 matrix_ref = self.matrix_ref_pvc
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif ( i == 6):
-                matrix_ref = self.matrix_ref_polystyrene
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif ( i == 7):
-                matrix_ref = self.matrix_ref_sable
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))"""
-            
-            if (i == 0):
-                matrix_ref = self.matrix_ref_bottle
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
-            elif (i == 1):
-                matrix_ref = self.matrix_ref_ink
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i == 2):
-                matrix_ref = self.matrix_ref_pla
+                matrix_ref = self.matrix_ref_inkCartridge
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i == 3):
-                matrix_ref = self.matrix_ref_plastic_bag
+                matrix_ref = self.matrix_ref_peld
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i==4):
+                matrix_ref = self.matrix_ref_pla
+                erreur.append(self.mse(matrix_ref,matrix_to_studied))
+            elif (i==5):
+                matrix_ref = self.matrix_ref_pp
+                erreur.append(self.mse(matrix_ref,matrix_to_studied))
+            elif (i==6):
                 matrix_ref = self.matrix_ref_sable
-                erreur.append(self.mse(matrix_ref,matrix_to_studied))      
+                erreur.append(self.mse(matrix_ref,matrix_to_studied))       
 
         
         idx = erreur.index(min(erreur))
@@ -199,22 +171,18 @@ class Analyse:
     def affichage_scan (self, my_plage, liste_matrix_ref):
         liste_erreur = self.scan_plage(my_plage,liste_matrix_ref)
         count_global = 0
-        count_bottle = 0
-        count_ink = 0
-        count_pla = 0
-        count_plast_bag = 0
-        count_sable = 0
-        """count_PP = 0
-        count_PELD = 0
         count_PET = 0
-        count_Polyester = 0
+        count_ink = 0
+        count_PLA = 0
+        count_PELD = 0
         count_PVC = 0
-        count_polystyrene = 0"""
+        count_PP = 0
+        count_sable = 0
 
         x = my_plage.get_dim_plage()[0]
         y = my_plage.get_dim_plage()[1]
 
-        erreur_detec = 100
+        erreur_detec = 10
 
         for i in range(len(liste_erreur)):
             if (liste_erreur[i][0] > erreur_detec):
@@ -228,66 +196,49 @@ class Analyse:
                 my_plage.get_specific_Case(liste_erreur[i][2],liste_erreur[i][3]).typePlastique = liste_matrix_ref[liste_erreur[i][1]]
                 print("  => Localisation : ",liste_erreur[i][2],liste_erreur[i][3])
                         
-            if(liste_erreur[i][1] <=  3 and liste_erreur[i][0] < erreur_detec):
+            if(liste_erreur[i][1] <=  5 and liste_erreur[i][0] < erreur_detec):
                 count_global += 1
             if(liste_erreur[i][1] == 0 and liste_erreur[i][0] < erreur_detec):
-                count_bottle += 1
-            if(liste_erreur[i][1] == 1 and liste_erreur[i][0] < erreur_detec):
-                count_ink += 1
-            if(liste_erreur[i][1] == 2 and liste_erreur[i][0] < erreur_detec):
-                count_pla += 1
-            if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < erreur_detec):
-                count_plast_bag += 1
-            if(liste_erreur[i][1] == 4 and liste_erreur[i][0] < erreur_detec):
-                count_sable += 1
-            """
-            if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < 0.009):
                 count_PET += 1
-            if(liste_erreur[i][1] == 4 and liste_erreur[i][0] < 0.009):
-                count_Polyester += 1
-            if(liste_erreur[i][1] == 5 and liste_erreur[i][0] < 0.009):
+            if(liste_erreur[i][1] == 1 and liste_erreur[i][0] < erreur_detec):
                 count_PVC += 1
-            if(liste_erreur[i][1] == 6 and liste_erreur[i][0] < 0.009):
-                count_polystyrene += 1"""
+            if(liste_erreur[i][1] == 2 and liste_erreur[i][0] < erreur_detec):
+                count_ink += 1
+            if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < erreur_detec):
+                count_PLA += 1
+            if(liste_erreur[i][1] == 4 and liste_erreur[i][0] < erreur_detec):
+                count_PELD += 1
+            if(liste_erreur[i][1] == 5 and liste_erreur[i][0] < erreur_detec):
+                count_PP += 1
 
             
         dim = x * y
         print ("--------------------------------")
         print ("La plage contient",'{0:.0%}'.format(count_global/dim),"de plastique.")
-        print(count_bottle)
-        print(count_global)
+
         my_plage.pourcentage = count_global/dim
-        my_plage.BOTTLE = count_bottle/count_global
+        my_plage.PET = count_PET/count_global
         my_plage.INK = count_ink/count_global
-        my_plage.PLA = count_pla/count_global
-        my_plage.PLAST_BAG = count_plast_bag/count_global
-        """
+        my_plage.PLA = count_PLA/count_global
+        my_plage.PELD = count_PELD/count_global
         my_plage.PVC = count_PVC/count_global
-        my_plage.polystyrene = count_polystyrene/count_global"""
+        my_plage.PP = count_PP/count_global
+        
         if(count_global != 0):
             print ("Détails des plastiques détectés : ")
             print ("--------------------------------")
-        """
+        if(count_PET != 0):
+            print ("Polytéréphtalate d'éthylène (PET) : ",'{0:.0%}'.format(count_PET/count_global))
         if(count_PP != 0):
-            print ("Polypropylène (PP) : ",'{0:.0%}'.format(count_PP/count_global))
-        if(count_PELD != 0):
-            print ("Polyéthylène basse densité (PE-LD) : ",'{0:.0%}'.format(count_PELD/count_global))
-        if (count_PET != 0):
-            print ("Polyéthylène téréphtalate (PET) : ",'{0:.0%}'.format(count_PET/count_global))
-        if (count_Polyester!=0):
-            print ("Polyester : ",'{0:.0%}'.format(count_Polyester/count_global))
-        if (count_PVC != 0):
-            print ("PVC : ",'{0:.0%}'.format(count_PVC/count_global))
-        if (count_polystyrene != 0):
-            print ("Polystyrene : ",'{0:.0%}'.format(count_polystyrene/count_global))"""
-        if(count_bottle != 0):
-            print ("Bottle (bouteille de plastique) : ",'{0:.0%}'.format(count_bottle/count_global))
+            print ("Polypropylène (PP) : ",'{0:.0%}'.format(count_PET/count_global))
+        if (count_PVC!=0):
+            print ("Chlorure de polyvinyle (PVC) : ",'{0:.0%}'.format(count_PELD/count_global))
+        if (count_PLA != 0):
+            print ("Acide polyactique (PLA) : ",'{0:.0%}'.format(count_PLA/count_global))
+        if (count_PELD!=0):
+            print ("Pastique basse densité (PELD) : ",'{0:.0%}'.format(count_PELD/count_global))
         if(count_ink != 0):
-            print ("Cartouche d'encre (plastique inconnu) : ",'{0:.0%}'.format(count_ink/count_global))
-        if (count_pla != 0):
-            print ("Plastique d'imprimante 3D (PLA) : ",'{0:.0%}'.format(count_pla/count_global))
-        if (count_plast_bag!=0):
-            print ("Polyester : ",'{0:.0%}'.format(count_plast_bag/count_global))
+            print ("Matière plastique non identifiée : ",'{0:.0%}'.format(count_ink/count_global))
 
 
         
