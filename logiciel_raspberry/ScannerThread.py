@@ -1,6 +1,4 @@
-from Moteur import Moteur
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
-from time import sleep, time # Documentation about sleep with linux and windows kernel https://stackoverflow.com/questions/1133857/how-accurate-is-pythons-time-sleep
 import datetime;
 import threading
 
@@ -20,7 +18,6 @@ class ScannerThread (threading.Thread):
             self.scanner_obj.moteur_a.sens(True)
 
         #4min30 de 15 a 380
-        #time_1 = time.time()
         ts1 = datetime.datetime.now().timestamp()
         while(GPIO.input(int(17+current_pin_offset)) == GPIO.LOW):
             
@@ -29,7 +26,6 @@ class ScannerThread (threading.Thread):
             else:
                 self.scanner_obj.warning_pin = False
 
-            #time_2 = time.time()
             ts2 = datetime.datetime.now().timestamp()
             if(current_pin_offset == 0 and self.scanner_obj.x_aff_barre <= 380):
                 self.scanner_obj.x_aff_barre = 1.352*(ts2-ts1) + 15
@@ -43,4 +39,3 @@ class ScannerThread (threading.Thread):
 
         if(self.scanner_obj.allere_retour_done == self.scanner_obj.nb_aller_retour):#en fois tout les aller retours fait on remte a 0
             self.scanner_obj.allere_retour_done = 0
-        
