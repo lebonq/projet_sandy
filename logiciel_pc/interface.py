@@ -338,12 +338,8 @@ class Ui_MainWindow(object):
         self.imgPlastique.setFrameShape(QtWidgets.QFrame.Box)
 
         self.Id_titre.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Identité du plastique détecté</span></p></body></html>"))
-<<<<<<< HEAD
-        self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études.</span></p></body></html>"))
-=======
         self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études. </span></p></body></html>"))
         self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
->>>>>>> 77b9bca8e8eb74896bd48b75518959199c7643b2
 
         if (nomElement == "white_peld"):
             # affichage de l'image
