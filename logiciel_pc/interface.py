@@ -360,7 +360,7 @@ class Ui_MainWindow(object):
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène basse densité</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RES, Réseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Description manquante.</span></p></body></html>"))
 
-        elif (nomElement == "blue_pp" or nomElement == "orange_pp"):
+        elif (nomElement == "PP"):
             # affichage de l'image
             pm_icon = QtGui.QPixmap() 
             pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle5.jpg") 
