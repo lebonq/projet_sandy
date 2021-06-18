@@ -21,7 +21,7 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
-plage = Plage(10,10,0.5)
+plage = Plage(40,40,0.5)
 my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
 
 # Override de la classe QLabel
@@ -171,6 +171,7 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
+        #self.gridLayout.setSizeConstraint(3) #restreindre la taille du layout
         self.horizontalLayout_3.addLayout(self.gridLayout)
 
         # creation d'un graphique pour visualiser le spectre
@@ -337,7 +338,12 @@ class Ui_MainWindow(object):
         self.imgPlastique.setFrameShape(QtWidgets.QFrame.Box)
 
         self.Id_titre.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Identité du plastique détecté</span></p></body></html>"))
+<<<<<<< HEAD
         self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études.</span></p></body></html>"))
+=======
+        self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études. </span></p></body></html>"))
+        self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
+>>>>>>> 77b9bca8e8eb74896bd48b75518959199c7643b2
 
         if (nomElement == "white_peld"):
             # affichage de l'image
@@ -354,7 +360,6 @@ class Ui_MainWindow(object):
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène basse densité</span></p></body></html>"))
-            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span></p><p align=\"justify\"><span style=\" font-size:10pt;\">D\'après le RSE, Raiseau Santé Environnement (France)</span></p></body></html>"))
 
         elif (nomElement == "blue_pp" or nomElement == "orange_pp"):
@@ -371,7 +376,6 @@ class Ui_MainWindow(object):
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polypropylène</span></p></body></html>"))
-            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span></p><p align=\"justify\"><span style=\" font-size:10pt;\">D\'après le RSE, Raiseau Santé Environnement (France)</span></p></body></html>"))
 
@@ -390,7 +394,6 @@ class Ui_MainWindow(object):
             self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
-            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène téréphtalate</span></p></body></html>"))
 
         elif (nomElement == "white_polyester"):
@@ -408,7 +411,6 @@ class Ui_MainWindow(object):
             self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
-            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène téréphtalate</span></p></body></html>"))
 
         elif (nomElement == "pvc"):
@@ -425,7 +427,6 @@ class Ui_MainWindow(object):
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polychlorure de vinyle</span></p></body></html>"))
-            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Chauffé, le plastique PVC génère des phtalates pouvent migrer vers d\'autres surfaces. Le PVC est également supecté de contribuer aux pluies acides et de rejeter des dioxines (molécules persistantes et toxiques).</span></p></body></html>"))
 
@@ -443,7 +444,6 @@ class Ui_MainWindow(object):
             self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
             self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polystyrène</span></p></body></html>"))
-            self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
             self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avéréé </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p align=\"justify\"><span style=\" font-size:10pt;\">Exposé à la chaleur, le polystyrène risque de dégager du styrène qui pourrait être cancérigène selon le CIRC (Centre International de la Recherche sur le Cancer).</span></p></body></html>"))
         
@@ -509,8 +509,9 @@ class Ui_MainWindow(object):
             for x in range(plage.abs):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
                 self.label = ClickableLabel(self.centralwidget)
-                # self.label.setMaximumSize(20,4) # taille maximum du label largeur*hauteur
+                self.label.setMaximumSize(20,6) # taille maximum du label largeur*hauteur
                 self.label.setObjectName(label)
+                self.label.setScaledContents(True) # adapter la taille à la fenetre (marche pas)
                 self.gridLayout.addWidget(self.label, y, x, 1, 1)
                 nomElement = plage.get_specific_Case(x,y).typePlastique
                 self.label.setText(_translate("MainWindow", nomElement))
