@@ -178,7 +178,7 @@ class Analyse:
         x = my_plage.get_dim_plage()[0]
         y = my_plage.get_dim_plage()[1]
 
-        erreur_detec = 10
+        erreur_detec = 105
 
         for i in range(len(liste_erreur)):
             if (liste_erreur[i][0] > erreur_detec):
