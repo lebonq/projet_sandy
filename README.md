@@ -27,7 +27,7 @@ Pour cela, nous avons besoin de spectre de référence afin de pouvoir effectuer
 * Polyéthylène haute densité (PE-HD)
 * Acide polyactique (PLA)
 
-Caractéristiques spectrales :
+Caractéristiques spectrales - *exemple du PELD en présence de sable*
 
 <img src="https://github.com/lebonq/projet_sandy/blob/main/analysePELD.PNG"/>  
 
