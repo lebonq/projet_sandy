@@ -18,6 +18,7 @@ class Plage:
         self.PELD = 0
         self.PVC = 0
         self.PP = 0
+        self.PC  =0
 
         self.grille = self.set_grille(proba)
     

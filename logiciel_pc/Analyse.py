@@ -15,6 +15,7 @@ class Analyse:
         self.liste_data_pla = np.reshape(liste_data_pla,(512,1))
         self.liste_data_peld = np.reshape(liste_data_peld,(512,1))
         self.liste_data_pp = np.reshape(liste_data_pp,(512,1))
+        self.liste_data_pc = np.reshape(liste_data_pc,(512,1))
         self.liste_data_sable = np.reshape(liste_data_sable,(512,1))
         
         self.matrix_ref_pet = np.append(self.list_wavelength,self.liste_data_pet,axis=1)
@@ -23,6 +24,7 @@ class Analyse:
         self.matrix_ref_pla = np.append(self.list_wavelength, self.liste_data_pla, axis=1)
         self.matrix_ref_peld = np.append(self.list_wavelength, self.liste_data_peld, axis=1)
         self.matrix_ref_pp = np.append(self.list_wavelength, self.liste_data_pp, axis=1)
+        self.matrix_ref_pc = np.append(self.list_wavelength, self.liste_data_pc, axis=1)
         self.matrix_ref_sable = np.append(self.list_wavelength,self.liste_data_sable,axis=1)
 
 
@@ -138,6 +140,9 @@ class Analyse:
                 matrix_ref = self.matrix_ref_pp
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i==6):
+                matrix_ref = self.matrix_ref_pc
+                erreur.append(self.mse(matrix_ref,matrix_to_studied))
+            elif (i==7):
                 matrix_ref = self.matrix_ref_sable
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))       
 
@@ -173,6 +178,7 @@ class Analyse:
         count_PELD = 0
         count_PVC = 0
         count_PP = 0
+        count_PC = 0
         count_sable = 0
 
         x = my_plage.get_dim_plage()[0]
@@ -192,7 +198,7 @@ class Analyse:
                 my_plage.get_specific_Case(liste_erreur[i][2],liste_erreur[i][3]).typePlastique = liste_matrix_ref[liste_erreur[i][1]]
                 print("  => Localisation : ",liste_erreur[i][2],liste_erreur[i][3])
                         
-            if(liste_erreur[i][1] <=  5 and liste_erreur[i][0] < erreur_detec):
+            if(liste_erreur[i][1] <=  6 and liste_erreur[i][0] < erreur_detec):
                 count_global += 1
             if(liste_erreur[i][1] == 0 and liste_erreur[i][0] < erreur_detec):
                 count_PET += 1
@@ -206,6 +212,8 @@ class Analyse:
                 count_PELD += 1
             if(liste_erreur[i][1] == 5 and liste_erreur[i][0] < erreur_detec):
                 count_PP += 1
+            if(liste_erreur[i][1] == 6 and liste_erreur[i][0] < erreur_detec):
+                count_PC += 1
 
             
         dim = x * y
@@ -219,6 +227,7 @@ class Analyse:
         my_plage.PELD = count_PELD/count_global
         my_plage.PVC = count_PVC/count_global
         my_plage.PP = count_PP/count_global
+        my_plage.PC = count_PC/count_global
         
         if(count_global != 0):
             print ("Détails des plastiques détectés : ")
@@ -233,5 +242,7 @@ class Analyse:
             print ("Acide polyactique (PLA) : ",'{0:.0%}'.format(count_PLA/count_global))
         if (count_PELD!=0):
             print ("Plastique basse densité (PELD) : ",'{0:.0%}'.format(count_PELD/count_global))
+        if (count_PC!=0):
+            print ("Polycarbonate (PC) : ",'{0:.0%}'.format(count_PC/count_global))  
         if(count_ink != 0):
             print ("Polyéthylène haute densité (PEHD) : ",'{0:.0%}'.format(count_ink/count_global))
