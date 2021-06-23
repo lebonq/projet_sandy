@@ -39,7 +39,7 @@ _fonctionne avec python3_
 **1. Cloner le projet git**
 
 ```bash
-git clone ......
+git clone https://github.com/lebonq/projet_sandy
 ```
 
 **2. Installations des paquets nécessaires**
