@@ -6,7 +6,7 @@
 
 **1. Contexte :**
 
-Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentent aujourd'hui un risque environnemental et sanitaire croissant. Sous l'effet des éléments et l'impact du temps, les macro-plastiques se fragmentes en morceaux de plus en plus petits et incontrôlables. Ces micrplastiques contaminent les écosystèmes ainsi que l'ensemble de la chaîne alimentaire et leurs effets sur la santé sont encore mal connus.   
+Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentent aujourd'hui un risque environnemental et sanitaire croissant. Sous l'effet des éléments et l'impact du temps, les macro-plastiques se fragmentent en morceaux de plus en plus petits et incontrôlables. Ces microplastiques contaminent les écosystèmes ainsi que l'ensemble de la chaîne alimentaire alors que leurs effets sur la santé sont encore mal connus.   
 
 **2. Objectifs du logiciel :**
 
@@ -23,11 +23,13 @@ Pour cela, nous avons besoin de spectre de référence afin de pouvoir effectuer
 * Polypropylène (PP) 
 * Polycarbonate (PC)
 * Polyéthylène basse densité (PE-LD) 
+* Polyéthylène haute densité (PE-HD)
 * Acide polyactique (PLA)
 
 Caractéristiques spectrales :
 
-<img src="https://github.com/lebonq/projet_sandy/blob/main/courbeReflexion.PNG"/>  
+<img src="https://github.com/lebonq/projet_sandy/blob/main/analysePELD.PNG"/>  
+
 
 ## Installation
 
@@ -45,11 +47,8 @@ git clone ......
 python3 install -r requirements.txt
 ```
 
-**3. Placer vous dans un environnement virtuel**
-
-```bash
-virtualenv venv
-source venv/bin/activate
-```
-
 ## Utilisation
+```bash
+cd logiciel_pc
+python3 interface.py
+```
