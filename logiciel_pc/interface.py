@@ -339,6 +339,12 @@ class Ui_MainWindow(object):
         self.imgPlastique.setFrameShape(QtWidgets.QFrame.Box)
 
         self.Id_titre.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Identité du plastique détecté</span></p></body></html>"))
+        self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
+        self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
+        self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
+        self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
+        self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
+
         self.Id_variable.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-style:italic;\">Le niveau de dangerosité indiqué peut varier suivant les études. </span></p></body></html>"))
         self.Id_paplChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- https://www.natura-sciences.com/sante/plastiques-toxicite-sante787.html</span></p><p><span style=\" font-size:10pt;\">- https://www.perturbateur-endocrinien.com/identification-plastique/</span></p></body></html>"))
         
@@ -350,13 +356,8 @@ class Ui_MainWindow(object):
             self.imgPlastique.setPixmap(pm_icon)
 
             # affichage de la fiche id
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Sac de congélation, sac poubelle</span></p><p><span style=\" font-size:10pt;\">- Films alimentaires et barquettes</span></p><p><span style=\" font-size:10pt;\">- Flacons cosmétiques</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PEBD</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène basse densité</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RES, Réseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Description manquante.</span></p></body></html>"))
 
@@ -368,13 +369,8 @@ class Ui_MainWindow(object):
 
             # affichage de la fiche id
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Boîtes de conservation (type tupperwar)</span></p><p><span style=\" font-size:10pt;\">- Pots de yaourts, margarines</span></p><p><span style=\" font-size:10pt;\">- Planches à découper en plastique</span></p><p><span style=\" font-size:10pt;\">- Pare-chocs, tableaux de bord de voitures</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PP</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polypropylène</span></p></body></html>"))
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span></p><p align=\"justify\"><span style=\" font-size:10pt;\">D\'après le RES, Réseau Santé Environnement (France)</span></p></body></html>"))
 
         elif (nomElement == "PET"):
@@ -387,11 +383,6 @@ class Ui_MainWindow(object):
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RES, Réseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Sous l\'effet du temps et de la chaleur, ce type de plastique est ammené à générer de l\'antimoine, un métal cancérigène qui passe de l\'emballage au contenu.</span></p></body></html>"))
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Bouteilles d\'eau</span></p><p><span style=\" font-size:10pt;\">- Emballages jetables de tous types et barquettes alimentaires</span></p><p><span style=\" font-size:10pt;\">- Fibres textiles, rembourrage</span></p><p><span style=\" font-size:10pt;\">- Carte de crédit</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PET</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène téréphtalate</span></p></body></html>"))
 
         elif (nomElement == "white_polyester"):
@@ -404,11 +395,6 @@ class Ui_MainWindow(object):
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RES, Réseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Sous l\'effet du temps et de la chaleur, ce type de plastique est ammené à générer de l\'antimoine, un métal cancérigène qui passe de l\'emballage au contenu.</span></p></body></html>"))
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Bouteilles d\'eau</span></p><p><span style=\" font-size:10pt;\">- Emballages jetables de tous types et barquettes alimentaires</span></p><p><span style=\" font-size:10pt;\">- Fibres textiles, rembourrage</span></p><p><span style=\" font-size:10pt;\">- Carte de crédit</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PET</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène téréphtalate</span></p></body></html>"))
 
         elif (nomElement == "PVC"):
@@ -419,13 +405,8 @@ class Ui_MainWindow(object):
 
             # affichage de la fiche id
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Jouets pour enfants</span></p><p><span style=\" font-size:10pt;\">- Tuyeaux de canalisation</span></p><p><span style=\" font-size:10pt;\">- Sols plastiques, revêtements mureaux</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PVC</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polychlorure de vinyle</span></p></body></html>"))
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avérée </span><span style=\" font-size:10pt;\">- d\'après le RES, Réseau Santé Environnement (France)</span></p><p><span style=\" font-size:10pt;\">Chauffé, le plastique PVC génère des phtalates pouvent migrer vers d\'autres surfaces. Le PVC est également supecté de contribuer aux pluies acides et de rejeter des dioxines (molécules persistantes et toxiques).</span></p></body></html>"))
 
         elif (nomElement == "polystyrene"):
@@ -436,13 +417,8 @@ class Ui_MainWindow(object):
 
             # affichage de la fiche id
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Barquettes de viandes, de poissons</span></p><p><span style=\" font-size:10pt;\">- Couverts en plastiques </span></p><p><span style=\" font-size:10pt;\">- Isolants thermiques (cloisons, planchers)</span></p><p><span style=\" font-size:10pt;\">- Flotteurs et planches à voiles</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PS</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polystyrène</span></p></body></html>"))
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avéréé </span><span style=\" font-size:10pt;\">- d\'après le RES, Réseau Santé Environnement (France)</span></p><p align=\"justify\"><span style=\" font-size:10pt;\">Exposé à la chaleur, le polystyrène risque de dégager du styrène qui pourrait être cancérigène selon le CIRC (Centre International de la Recherche sur le Cancer).</span></p></body></html>"))
         
         elif (nomElement == "PLA"):
@@ -453,14 +429,21 @@ class Ui_MainWindow(object):
 
             # affichage de la fiche id
             self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Impression 3D</span></p><p><span style=\" font-size:10pt;\">- Film plastique</span></p><p><span style=\" font-size:10pt;\">- Bouteille</span></p><p><span style=\" font-size:10pt;\">- Matériel médical biodégradable</span></p></body></html>"))
-            self.Id_nom.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Nom</span></p></body></html>"))
             self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PLA</span></p></body></html>"))
-            self.Id_abreviation.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Abréviation</span></p></body></html>"))
-            self.Id_papl.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Pour aller plus loin</span></p></body></html>"))
-            self.Id_nvDangerosite.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Niveau de dangerosité</span></p></body></html>"))
             self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Acide Polyactique</span></p></body></html>"))
-            self.Id_usage.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Usages</span></p></body></html>"))
             self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span><span style=\" font-size:10pt;\">- d\'après 3D natives</span></p><p align=\"justify\"><a name=\"docs-internal-guid-6be6136d-7fff-e2d2-9b44-da61828ccb52\"/><span style=\" font-family:\'Arial\'; font-size:10pt; color:#000000; background-color:transparent;\">L</span><span style=\" font-family:\'Arial\'; font-size:10pt; color:#000000; background-color:transparent;\">e PLA est le plastique le plus répandu pour l\'impression 3D et il est souvent considéré comme plus sûr et plus durable que les autres matériaux. Toutefois, le PLA se dégrade difficilement dans un milieu naturel et nécessite plutôt un compostage industriel très spécifique. De plus, des études ont prouvé que le PLA émet une quantité importante de nanoparticules susceptible de contaminer l\'organisme entier à travers le sang. En l\'absence de données de sécurité concernant la dangerosité de ces émissions, les dangers sont variables selon les échantillons. Ce plastique est plus respectueux que d\'autres issus de ressources fossiles mais certaines améliorations doivent encore êtres mises en place.</span></p></body></html>"))
+
+        elif (nomElement == "Ink Cartridge"):
+            # affichage de l'image
+            pm_icon = QtGui.QPixmap()  
+            pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle2.jpg") 
+            self.imgPlastique.setPixmap(pm_icon)
+
+            # affichage de la fiche id
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible</span></p><p><span style=\" font-size:10pt;\">D\'après le RSE, Raiseau Santé Environnement (France)</span></p></body></html>"))
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Bouteilles opaques (jus de fruits, lait, gel douche)</span></p><p><span style=\" font-size:10pt;\">- Tubes de transport de gaz, eau, câbles</span></p><p><span style=\" font-size:10pt;\">- Bouchons</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PEHD</span></p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polyéthylène haute densité</span></p></body></html>"))
 
 
     # affichage du spectre d'element inconnu du logiciel
@@ -547,6 +530,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow","Projet Sandy")) # nom de la fenêtre
+
         # initialisation de la fiche id vide
         self.Id_usage.setText(_translate("MainWindow", ""))
         self.Id_papl.setText(_translate("MainWindow", ""))
@@ -590,22 +574,14 @@ class Ui_MainWindow(object):
         self.photo3.setPixmap(pm_photo3)
 
         # affichage du détail de la pollution de la plage
-        """self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
-                                                            "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polypropylène (PP): "+str('{0:.0%}'.format(plage.PP))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène basse densité (PE-LD): "+str('{0:.0%}'.format(plage.PELD))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène téréphtalate (PET): "+str('{0:.0%}'.format(plage.PET))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polyester: "+str('{0:.0%}'.format(plage.Polyester))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">PVC: "+str('{0:.0%}'.format(plage.PVC))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polystyrene: "+str('{0:.0%}'.format(plage.polystyrene))+"</span></p></body></html>"))"""
-        self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage: "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
-                                                            "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés: </span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polytéréphtalate d'éthylène (PET): "+str('{0:.0%}'.format(plage.PET))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polypropylène (PP): "+str('{0:.0%}'.format(plage.PP))+"</span></p>"+
+        self.pollutionPlage.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Pollution totale de la plage : "+str('{0:.0%}'.format(plage.pourcentage))+"</span></p>"+
+                                                            "<p align=\"center\"><br/><span style=\" font-size:12pt;\">Détails des plastiques détectés : </span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polytéréphtalate d'éthylène (PET) : "+str('{0:.0%}'.format(plage.PET))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polypropylène (PP) : "+str('{0:.0%}'.format(plage.PP))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Chlorure de polyvinyle (PVC): "+str('{0:.0%}'.format(plage.PVC))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Acide polyactique (PLA): "+str('{0:.0%}'.format(plage.PLA))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Plastique basse densité (PELD): "+str('{0:.0%}'.format(plage.PELD))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Matière plastique non identifiée: (encre) "+str('{0:.0%}'.format(plage.INK))+"</span></p></body></html>"))
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Acide polyactique (PLA) : "+str('{0:.0%}'.format(plage.PLA))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Plastique basse densité (PELD) : "+str('{0:.0%}'.format(plage.PELD))+"</span></p>"+
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène haute densité (PEHD) : "+str('{0:.0%}'.format(plage.INK))+"</span></p></body></html>"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.setBeach() # creation des QLabel pour dessiner la plage
 

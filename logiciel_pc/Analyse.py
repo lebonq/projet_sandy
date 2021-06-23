@@ -234,4 +234,4 @@ class Analyse:
         if (count_PELD!=0):
             print ("Plastique basse densité (PELD) : ",'{0:.0%}'.format(count_PELD/count_global))
         if(count_ink != 0):
-            print ("Matière plastique non identifiée : ",'{0:.0%}'.format(count_ink/count_global))
+            print ("Polyéthylène haute densité (PEHD) : ",'{0:.0%}'.format(count_ink/count_global))
