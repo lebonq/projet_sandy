@@ -14,6 +14,7 @@ Face à ce constat, le projet *Sandy* associé à un spectromètre Raman permet 
 
 
 **3. Principe de fonctionnement :**  
+
 Afin d'identifier la nature des corps étudiés par le spectromètre, nous allons utiliser les propriétés spectrales des matériaux. A l'aide d'un spectromètre mobile, nous allons pouvoir accéder à l'intensité en fonction du nombre d'onde. Ces données sint caractéristiques de la composition d'un matériau puisqu'elles dépendent du type d'atome, de la force des liaisons, de sa géométrie, etc.  
 Pour cela, nous avons besoin de spectre de référence afin de pouvoir effectuer les comparaisons. Les spectres que nous avons utilisés ont été obtenu dans un environnement de laboratoire de haute précision. 
 
