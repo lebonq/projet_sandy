@@ -259,6 +259,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addLayout(self.verticalLayout)
         self.pollutionPlage = QtWidgets.QLabel(self.centralwidget)
         self.pollutionPlage.setAutoFillBackground(False)
+        #self.pollutionPlage.setWordWrap(True) # taille du texte a la taille du label
+        #self.pollutionPlage.setMinimumSize(QtCore.QSize(16777215, 260)) # taille max du label
         #self.pollutionPlage.setFrameShape(QtWidgets.QFrame.Box)
         self.pollutionPlage.setIndent(-1)
         self.pollutionPlage.setObjectName("pollutionPlage")
@@ -440,12 +442,12 @@ class Ui_MainWindow(object):
             self.imgPlastique.setPixmap(pm_icon)
 
             # affichage de la fiche id
-            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- PC impression 3D</span></p><p><span style=\" font-size:10pt;\">- Film plastique</span></p><p><span style=\" font-size:10pt;\">- Bouteille</span></p><p><span style=\" font-size:10pt;\">- Matériel médical biodégradable</span></p></body></html>"))
-            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">PLA</span></p></body></html>"))
-            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Acide Polyactique</span></p></body></html>"))
-            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité faible </span><span style=\" font-size:10pt;\">- d\'après 3D natives</span></p><p align=\"justify\"><a name=\"docs-internal-guid-6be6136d-7fff-e2d2-9b44-da61828ccb52\"/><span style=\" font-family:\'Arial\'; font-size:10pt; color:#000000; background-color:transparent;\">L</span><span style=\" font-family:\'Arial\'; font-size:10pt; color:#000000; background-color:transparent;\">e PLA est le plastique le plus répandu pour l\'impression 3D et il est souvent considéré comme plus sûr et plus durable que les autres matériaux. Toutefois, le PLA se dégrade difficilement dans un milieu naturel et nécessite plutôt un compostage industriel très spécifique. De plus, des études ont prouvé que le PLA émet une quantité importante de nanoparticules susceptible de contaminer l\'organisme entier à travers le sang. En l\'absence de données de sécurité concernant la dangerosité de ces émissions, les dangers sont variables selon les échantillons. Ce plastique est plus respectueux que d\'autres issus de ressources fossiles mais certaines améliorations doivent encore êtres mises en place.</span></p></body></html>"))
+            self.Id_nvDangerositeChamp.setText(_translate("MainWindow", "<html><head/><body><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600; font-style:italic;\">Dangerosité avéréé </span><span style=\" font-size:10pt;\">- d\'après le RSE, Raiseau Santé Environnement (France)</span></p><p align=\"justify\"><span style=\" font-size:10pt;\">Cette catégorie contient notamment le bisphénol A qui s\'extrait spontanément des objets plastiques. Selon </span><span style=\" font-size:10pt; font-style:italic;\">Santé Canada, </span><span style=\" font-size:10pt;\">le BPA est détécté chez 91 % des canadiens de 6 à 79 ans, alors que les risques induits par cette contamination sont encore mal connus.</span></p></body></html>"))
+            self.Id_abreviationChamp.setText(_translate("MainWindow", "<html><head/><body><p>PC</p></body></html>"))
+            self.Id_nomChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">Polycarbonate</span></p></body></html>"))
+            self.Id_usageChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Nylon</span></p><p><span style=\" font-size:10pt;\">- CD</span></p><p><span style=\" font-size:10pt;\">- Acrylic</span></p><p><span style=\" font-size:10pt;\">- Petit éléctroménager</span></p></body></html>"))
 
-        elif (nomElement == "Ink Cartridge"):
+        elif (nomElement == "PEHD"):
             # affichage de l'image
             pm_icon = QtGui.QPixmap()  
             pm_icon.load(os.path.dirname(os.path.abspath(__file__)) + "/img/sigle2.jpg") 
@@ -594,7 +596,7 @@ class Ui_MainWindow(object):
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Acide polyactique (PLA) : "+str('{0:.0%}'.format(plage.PLA))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Plastique basse densité (PELD) : "+str('{0:.0%}'.format(plage.PELD))+"</span></p>"+
                                                             "<p align=\"center\"><span style=\" font-size:10pt;\">Polycarbonate (PC) : "+str('{0:.0%}'.format(plage.PC))+"</span></p>"+
-                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène haute densité (PEHD) : "+str('{0:.0%}'.format(plage.INK))+"</span></p></body></html>"))
+                                                            "<p align=\"center\"><span style=\" font-size:10pt;\">Polyéthylène haute densité (PEHD) : "+str('{0:.0%}'.format(plage.PEHD))+"</span></p></body></html>"))
         self.Titre.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; color:#00007f;\">Analyse des plages</span></p></body></html>"))
         self.setBeach() # creation des QLabel pour dessiner la plage
 

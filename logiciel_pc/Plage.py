@@ -11,7 +11,7 @@ class Plage:
         self.pourcentage = 0 # pourcentage de la pollution totale de la plage
         # en pourcentage
         self.BOTTLE = 0
-        self.INK = 0
+        self.PEHD = 0
         self.PLA = 0
         self.PLAST_BAG = 0
         self.PET = 0

@@ -11,7 +11,7 @@ class Analyse:
         self.list_wavelength = np.reshape(self.list_wavelength,(512,1))
         self.liste_data_pet = np.reshape(liste_data_pet,(512,1))
         self.liste_data_pvc = np.reshape(liste_data_pvc,(512,1))
-        self.liste_data_inkCartridge = np.reshape(liste_data_inkCartridge,(512,1))
+        self.liste_data_pehd = np.reshape(liste_data_pehd,(512,1))
         self.liste_data_pla = np.reshape(liste_data_pla,(512,1))
         self.liste_data_peld = np.reshape(liste_data_peld,(512,1))
         self.liste_data_pp = np.reshape(liste_data_pp,(512,1))
@@ -20,7 +20,7 @@ class Analyse:
         
         self.matrix_ref_pet = np.append(self.list_wavelength,self.liste_data_pet,axis=1)
         self.matrix_ref_pvc = np.append(self.list_wavelength,self.liste_data_pvc,axis=1)
-        self.matrix_ref_inkCartridge = np.append(self.list_wavelength, self.liste_data_inkCartridge, axis=1)
+        self.matrix_ref_pehd = np.append(self.list_wavelength, self.liste_data_pehd, axis=1)
         self.matrix_ref_pla = np.append(self.list_wavelength, self.liste_data_pla, axis=1)
         self.matrix_ref_peld = np.append(self.list_wavelength, self.liste_data_peld, axis=1)
         self.matrix_ref_pp = np.append(self.list_wavelength, self.liste_data_pp, axis=1)
@@ -128,7 +128,7 @@ class Analyse:
                 matrix_ref = self.matrix_ref_pvc
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i == 2):
-                matrix_ref = self.matrix_ref_inkCartridge
+                matrix_ref = self.matrix_ref_pehd
                 erreur.append(self.mse(matrix_ref,matrix_to_studied))
             elif (i == 3):
                 matrix_ref = self.matrix_ref_peld
@@ -173,7 +173,7 @@ class Analyse:
         liste_erreur = self.scan_plage(my_plage,liste_matrix_ref)
         count_global = 0
         count_PET = 0
-        count_ink = 0
+        count_pehd = 0
         count_PLA = 0
         count_PELD = 0
         count_PVC = 0
@@ -205,7 +205,7 @@ class Analyse:
             if(liste_erreur[i][1] == 1 and liste_erreur[i][0] < erreur_detec):
                 count_PVC += 1
             if(liste_erreur[i][1] == 2 and liste_erreur[i][0] < erreur_detec):
-                count_ink += 1
+                count_pehd += 1
             if(liste_erreur[i][1] == 3 and liste_erreur[i][0] < erreur_detec):
                 count_PLA += 1
             if(liste_erreur[i][1] == 4 and liste_erreur[i][0] < erreur_detec):
@@ -222,7 +222,7 @@ class Analyse:
 
         my_plage.pourcentage = count_global/dim
         my_plage.PET = count_PET/count_global
-        my_plage.INK = count_ink/count_global
+        my_plage.PEHD = count_pehd/count_global
         my_plage.PLA = count_PLA/count_global
         my_plage.PELD = count_PELD/count_global
         my_plage.PVC = count_PVC/count_global
@@ -244,5 +244,5 @@ class Analyse:
             print ("Plastique basse densité (PELD) : ",'{0:.0%}'.format(count_PELD/count_global))
         if (count_PC!=0):
             print ("Polycarbonate (PC) : ",'{0:.0%}'.format(count_PC/count_global))  
-        if(count_ink != 0):
-            print ("Polyéthylène haute densité (PEHD) : ",'{0:.0%}'.format(count_ink/count_global))
+        if(count_pehd != 0):
+            print ("Polyéthylène haute densité (PEHD) : ",'{0:.0%}'.format(count_pehd/count_global))
