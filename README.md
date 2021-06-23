@@ -6,27 +6,28 @@
 
 **1. Contexte :**
 
-Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentent aujourd'hui un risque environnemental et sanitaire croissant.    
+Les déchets plastiques sont ceux les plus répandus dans l'environnement marin. Ils représentent aujourd'hui un risque environnemental et sanitaire croissant. Sous l'effet des éléments et l'impact du temps, les macro-plastiques se fragmentes en morceaux de plus en plus petits et incontrôlables. Ces micrplastiques contaminent les écosystèmes ainsi que l'ensemble de la chaîne alimentaire et leurs effets sur la santé sont encore mal connus.   
 
 **2. Objectifs du logiciel :**
 
-Face à ce constat, le projet *Sandy* associé à un spectromètre IR permet d'analyser les microplastiques présents sur une plage afin de les identifier et de les quantifier.
+Face à ce constat, le projet *Sandy* associé à un spectromètre Raman permet d'analyser les microplastiques présents sur une plage afin de les identifier et de les quantifier. Ce logiciel a pour mission de soutenir la recherche scientifique afin de permettre une meilleure compréhension de la pollution par les microplastiques, notamment ses impacts environnementaux et sanitaires. Les informations collectées aideront par la suite les décideurs et acteurs concernés dans la mise en place de mesures efficaces pour lutter contre l’invasion de nos écosystèmes par le plastique.
+
 
 **3. Principe de fonctionnement :**  
-Afin d'identifier la nature des corps étudiés par le spectromètre, nous allons utiliser les propriétés spectrales des matériaux. A l'aide d'un spectromètre mobile, nous allons pouvoir accéder au pourcentage de réflectance qui correspond à la proportion de lumière réfléchie par la surface d'un matériau. Le spectre de réflexion représentant la réflectance en fonction de la longueur d'onde va ainsi nous permettre d'identifier les plastiques.
-Pour cela, nous avons besoin de spectre de réflexion de référence afin de pouvoir effectuer les comparaisons. Les spectres que nous avons utilisés ont été obtenu dans un environnement industriel de haute précision. 
+Afin d'identifier la nature des corps étudiés par le spectromètre, nous allons utiliser les propriétés spectrales des matériaux. A l'aide d'un spectromètre mobile, nous allons pouvoir accéder à l'intensité en fonction du nombre d'onde. Ces données sint caractéristiques de la composition d'un matériau puisqu'elles dépendent du type d'atome, de la force des liaisons, de sa géométrie, etc.  
+Pour cela, nous avons besoin de spectre de référence afin de pouvoir effectuer les comparaisons. Les spectres que nous avons utilisés ont été obtenu dans un environnement de laboratoire de haute précision. 
 
 **4. Plastiques étudiés :**
 
-* Polyéthylène téréphtalate (PET) : bouteille en plastique
-* Polypropylène (PP) : corde bleue
-* Polyester (PEST) : corde orange
-* Polyéthylène basse densité (PE-LD) : gobelet en plastique
+* Polyéthylène téréphtalate (PET) 
+* Polypropylène (PP) 
+* Polycarbonate (PC)
+* Polyéthylène basse densité (PE-LD) 
+* Acide polyactique (PLA)
 
 Caractéristiques spectrales :
 
 <img src="https://github.com/lebonq/projet_sandy/blob/main/courbeReflexion.PNG"/>  
-*D'après https://www.nature.com/articles/s41598-021-84867-6/figures/1*
 
 ## Installation
 
