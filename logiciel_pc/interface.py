@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'analyseDesPlages.ui'
+# Form implementation generated from reading ui file 'interface.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -21,7 +21,7 @@ matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 
-plage = Plage(10,10,0.5)
+plage = Plage(10,10,0.3)
 my_analyse = Analyse().affichage_scan(plage,liste_matrix_ref)
 
 # Override de la classe QLabel
@@ -49,7 +49,6 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 946)
-        #MainWindow.showMaximized()
         MainWindow.showFullScreen()
 
         # icon de la fenetre
@@ -172,7 +171,6 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
-        #self.gridLayout.setSizeConstraint(3) #restreindre la taille du layout
         self.horizontalLayout_3.addLayout(self.gridLayout)
 
         # creation d'un graphique pour visualiser le spectre
@@ -259,9 +257,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addLayout(self.verticalLayout)
         self.pollutionPlage = QtWidgets.QLabel(self.centralwidget)
         self.pollutionPlage.setAutoFillBackground(False)
-        #self.pollutionPlage.setWordWrap(True) # taille du texte a la taille du label
-        #self.pollutionPlage.setMinimumSize(QtCore.QSize(16777215, 260)) # taille max du label
-        #self.pollutionPlage.setFrameShape(QtWidgets.QFrame.Box)
         self.pollutionPlage.setIndent(-1)
         self.pollutionPlage.setObjectName("pollutionPlage")
         self.horizontalLayout_2.addWidget(self.pollutionPlage)
@@ -291,7 +286,6 @@ class Ui_MainWindow(object):
         self.Titre.setFont(font)
         self.Titre.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.Titre.setFocusPolicy(QtCore.Qt.NoFocus)
-        #self.Titre.setFrameShape(QtWidgets.QFrame.Box)
         self.Titre.setScaledContents(False)
         self.Titre.setAlignment(QtCore.Qt.AlignCenter)
         self.Titre.setObjectName("Titre")
@@ -314,7 +308,6 @@ class Ui_MainWindow(object):
     # affichage du spectre plastique
     def spectrePlastique(self, x, y, nomElement):
         _translate = QtCore.QCoreApplication.translate
-        #self.descriptionPlastique.setText(_translate("MainWindow","C'est du plastique :)"))
 
         # affichage du spectre
         self.spectre.axes.clear() # effacage du dernier spectre affiche
@@ -521,12 +514,10 @@ class Ui_MainWindow(object):
             for x in range(plage.abs):  # chaque case de la ligne
                 label = "label" + str(y) + str(x)
                 self.label = ClickableLabel(self.centralwidget)
-                #self.label.setMaximumSize(20,6) # taille maximum du label largeur*hauteur
                 self.label.setObjectName(label)
-                #self.label.setScaledContents(True) # adapter la taille à la fenetre (marche pas)
                 self.gridLayout.addWidget(self.label, y, x, 1, 1)
                 nomElement = plage.get_specific_Case(x,y).typePlastique
-                self.label.setText(_translate("MainWindow", nomElement))
+                #self.label.setText(_translate("MainWindow", nomElement)) # decommenter cette ligne pour avoir le nom des éléments sur la case
                 if (nomElement == "sable"): # si c'est du sable sur la case
                     self.label.clicked.connect(lambda  x=x, y=y, nom = nomElement: self.spectreNonPlastique(x,y,nom))
                     self.label.setStyleSheet("background-color: {};".format(QtGui.QColor(253, 221, 92).name()))
@@ -574,7 +565,7 @@ class Ui_MainWindow(object):
         self.caract_ProtectionChamp.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt;\">- Réserve naturelle de la baie de Somme</span></p><p><span style=\" font-size:10pt;\">- Grand site de France</span></p><p><span style=\" font-size:10pt;\">- Parc naturel marin</span></p></body></html>"))
         self.caract_Photo.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600;\">Photos:</span></p></body></html>"))
 
-        # affichage de l'image
+        # affichage des photos
         pm_photo1 = QtGui.QPixmap() 
         pm_photo1.load(os.path.dirname(os.path.abspath(__file__)) + "/img/baieSomme1.jpg") 
         self.photo1.setPixmap(pm_photo1)
@@ -601,7 +592,7 @@ class Ui_MainWindow(object):
         self.setBeach() # creation des QLabel pour dessiner la plage
 
         self.quitter.setText(_translate("MainWindow", "Quitter")) # texte sur le bouton
-        self.quitter.clicked.connect(app.quit)
+        self.quitter.clicked.connect(app.quit) # liaison du du bouton à l'action de fermer la fenetre
     
 
 if __name__ == "__main__":
